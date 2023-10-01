@@ -1,23 +1,58 @@
 import { React, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <nav className="flex justify-between items-center p-2 bg-[#B7EFFB] h-20 w-full">
-        <div className="border-black border-2 flex w-1/4"></div>
-        <div className="flex justify-between items-center w-1/3">
-          <div className="flex justify-between text-lg">
-            <NavLink className="flex m-3 items-center" to = "/">Home</NavLink>
-            <NavLink className="flex m-3 items-center">About Us</NavLink>
-            <NavLink className="flex m-3 items-center">Projects</NavLink>
-          </div>
-          <div className="flex p-2">
-            <button className="flex text-white h-10 bg-[#003366] justify-center items-center w-20 rounded-md font-serif">
-              <NavLink to="/signup">Login</NavLink>
-            </button>
-          </div>
+      <header class="bg-[#B7EFFB]">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <Link
+            href="/"
+            class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">Tailblocks</span>
+          </Link>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <Link href="/" class="mr-5 hover:text-gray-900">
+              Home
+            </Link>
+            <Link href="/aboutus" class="mr-5 hover:text-gray-900">
+              About Us
+            </Link>
+            <Link href="/projects" class="mr-5 hover:text-gray-900">
+              Projects
+            </Link>
+            <Link href="/dashboard" class="mr-5 hover:text-gray-900">
+              Dashboard
+            </Link>
+          </nav>
+          <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+            Button
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
         </div>
-      </nav>
+      </header>
     </>
   );
 };

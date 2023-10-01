@@ -6,7 +6,7 @@ import Navbar from "../components/Layout/Navbar";
 const HomePage = () => {
   return (
     <>
-    <Navbar/>
+    
       <div className="bg-gradient-to-b from-[#B7EFFB] to-white flex flex-col pl-5 pr-5">
         <div className="flex h-112">
           <div className="flex flex-col w-2/3 items-center justify-center p-3">
