@@ -5,7 +5,7 @@ import pic3 from "../../assets/3.jpg";
 const HeroSection = () => {
   return (
     <>
-      <div className="flex h-112 bg-gradient-to-b from-[#B7EFFB] to-white  pl-10 pr-10">
+      <div className="flex h-112 bg-gradient-to-b from-[#B7EFFB] to-white pl-10 pr-10">
         <div className="flex-1">
           <div className="flex gap-5 justify-center">
             <img
@@ -29,10 +29,10 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-96 mt-3 pl-10 pr-10">
+      <div className="flex h-96 pl-10 pr-10 bg-white">
         <div className="w-2/3 flex flex-col">
-          <h1 className="text-3xl font-bold 2w-80">What's great about us?</h1>
-          <p className="text-2xl mt-3">
+          <h1 className="text-2xl font-bold 2w-80">What's great about us?</h1>
+          <p className="text-xl mt-3">
             “We pride ourselves on being the driving force behind a new era of
             Open Science collaboration. What truly sets us apart is our
             relentless commitment to fostering innovation and discovery. Our
@@ -42,7 +42,7 @@ const HeroSection = () => {
             perfect match. With seamless communication tools, we're breaking
             down boundaries and uniting brilliant minds worldwide.”
           </p>
-          <div className="flex mt-3">
+          <div className="flex mt-5">
             <button className="flex text-white mr-5 h-10 bg-[#003366] w-32 p-2 text-lg items-center justify-center rounded-md font-serif">
               Be a Creator
             </button>

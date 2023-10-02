@@ -14,7 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthForm />} />
+<<<<<<< HEAD
         <Route path="/reset-password" element={<ResetPassword />} />
+=======
+>>>>>>> 1018f4513bfc90c35d0fa053c74658b894f105de
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/selectrole" element={<Card />} />
       </Routes>
