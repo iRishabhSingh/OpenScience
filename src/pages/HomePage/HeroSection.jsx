@@ -5,7 +5,7 @@ import pic3 from "../../assets/3.jpg";
 const HeroSection = () => {
   return (
     <>
-      <div className="flex h-112 bg-gradient-to-b from-[#B7EFFB] to-white  pl-10 pr-10">
+      <div className="flex h-112 bg-gradient-to-b from-[#B7EFFB] to-white pl-10 pr-10">
         <div className="flex-1">
           <div className="flex gap-5 justify-center">
             <img
@@ -29,7 +29,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-96 mt-3 pl-10 pr-10">
+      <div className="flex h-96 pl-10 pr-10 bg-white">
         <div className="w-2/3 flex flex-col">
           <h1 className="text-3xl font-bold 2w-80">What's great about us?</h1>
           <p className="text-2xl mt-3">

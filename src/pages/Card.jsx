@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Card.css'; // Import your CSS file
+import './Card.css';
 
 function Card() {
   const [selectedOption, setSelectedOption] = useState(null);
