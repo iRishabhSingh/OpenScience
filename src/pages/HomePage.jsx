@@ -6,7 +6,6 @@ import Navbar from "../components/Layout/Navbar";
 const HomePage = () => {
   return (
     <>
-    
       <div className="bg-gradient-to-b from-[#B7EFFB] to-white flex flex-col pl-5 pr-5">
         <div className="flex h-112">
           <div className="flex flex-col w-2/3 items-center justify-center p-3">
@@ -31,9 +30,7 @@ const HomePage = () => {
         </div>
         <div className="flex h-96 ">
           <div className="w-2/3 pl-10 pr-10 flex flex-col">
-            <h1 className="text-3xl font-bold 2w-80">
-              What's great about us?
-            </h1>
+            <h1 className="text-3xl font-bold 2w-80">What's great about us?</h1>
             <p className="text-2xl mt-3">
               “We pride ourselves on being the driving force behind a new era of
               Open Science collaboration. What truly sets us apart is our
@@ -53,23 +50,18 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          <div>
-
-          </div>
+          <div></div>
         </div>
         <div className="flex h-112">
           <div className="flex flex-col w-1/2 items-center justify-center p-3">
-              <h1>Explore Open Science projects...</h1>
-              <div>
-
-              </div>
+            <h1>Explore Open Science projects...</h1>
+            <div></div>
           </div>
           <div className="flex w-1/2">
-              <img></img>
+            <img></img>
           </div>
         </div>
       </div>
-      
     </>
   );
 };
