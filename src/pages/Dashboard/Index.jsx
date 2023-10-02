@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import HeroSection from "./HeroSection";
 import Searchbar from "./Searchbar";
 import CreateFeed from "./CreateFeed";
 import ProjectSection from "./ProjectSection";
 import TopCollaborators from "./TopCollaborators";
+import CollaboratorSection from "./CollaboratorSection";
 
 const Dashboard = () => {
+  const [collaborator, setCollaborator] = useState(true);
   return (
     <>
       <div className="bg-gradient-to-b from-[#B7EFFB] to-[#FFF]">
@@ -14,8 +16,15 @@ const Dashboard = () => {
           <Searchbar />
           <CreateFeed />
         </div>
+        <button
+          type="button"
+          className="text-black bg-rose-500 px-5 py-2 ml-10 rounded"
+          onClick={() => setCollaborator(!collaborator)}
+        >
+          click here to see -  collaborator Status : {collaborator ? "True" : "False"}
+        </button>
       </div>
-      <ProjectSection />
+      {collaborator ? <CollaboratorSection /> : <ProjectSection />}
       <TopCollaborators />
     </>
   );
