@@ -25,8 +25,8 @@ const AuthForm = () => {
     setShowOtpPopup(true);
   };
 
-  const closeOtpPopup = () => {
-    setShowOtpPopup(false);
+  const toggleOtpPopup = () => {
+    setShowOtpPopup(!showOtpPopup);
   };
 
   const Login = () => (
@@ -101,17 +101,6 @@ const AuthForm = () => {
                 Verify
               </button>
             </div>
-            {showOtpPopup && (
-              <div className="form-group mt-2">
-                <input
-                  type="text"
-                  className="form-style"
-                  placeholder="Enter OTP"
-                  aria-label="OTP"
-                />
-                <i className="input-icon uil uil-lock-alt"></i>
-              </div>
-            )}
             <div className="form-group mt-2">
               <input
                 type="password"
@@ -140,7 +129,7 @@ const AuthForm = () => {
   );
 
   return (
-    <div className="section">
+    <div className="section flex justify-center">
       <div className="container">
         <div className="row full-height justify-content-center">
           <div className="col-12 text-center align-self-center py-5">
@@ -168,11 +157,24 @@ const AuthForm = () => {
       </div>
       {showOtpPopup && (
         <div className="otp-popup">
-          <div className="content">
-            <h4>Enter OTP</h4>
-            <input type="text" placeholder="Enter OTP" />
-            <button onClick={closeOtpPopup}>Submit</button>
-          </div>
+          <form className="otp-content">
+            <h3>Enter OTP</h3>
+            <div className="form-group mt-2">
+              <input
+                type="text"
+                className="form-style"
+                placeholder="Enter OTP"
+                aria-label="OTP"
+              />
+              <i className="input-icon uil uil-lock-alt"></i>
+            </div>
+            <div>
+              <button type="submit">Submit OTP</button>
+              <button type="button" onClick={toggleOtpPopup}>
+                Close
+              </button>
+            </div>
+          </form>
         </div>
       )}
     </div>

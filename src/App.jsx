@@ -6,13 +6,15 @@ import Dashboard from "./pages/Dashboard/Index";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import AuthForm from "./pages/AuthForm/AuthForm";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="auth" element={<AuthForm />} />
+        <Route path="/auth" element={<AuthForm />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/selectrole" element={<Card />} />
       </Routes>
