@@ -7,7 +7,8 @@ module.exports = {
         'half': '45vh',
         'onehalf': "9.9vh",
         "144":"33.99rem",
-        "112":"28rem"
+        "112":"28rem",
+        "88":"22rem"
       }
     },
   },

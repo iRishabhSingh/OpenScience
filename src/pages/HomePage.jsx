@@ -3,13 +3,14 @@ import Navbar from "../components/Layout/Navbar";
 // import pic1 from "../assets/1.jpg";
 // import pic2 from "../assets/2.jpg";
 // import pic3 from "../assets/3.jpg";
+import pic4 from "../assets/4.jpg";
 const HomePage = () => {
   return (
     <>
-    <Navbar/>
-      <div className="bg-gradient-to-b from-[#B7EFFB] to-white flex flex-col pl-5 pr-5">
+      <Navbar />
+      <div className="bg-gradient-to-b from-[#B7EFFB] to-white flex flex-col pl-10 pr-10">
         <div className="flex h-112">
-          <div className="flex flex-col w-2/3 items-center justify-center p-3">
+          <div className="flex flex-col w-2/3 items-center justify-center ">
             {/* <div className="flex h-60 w-fit border-2">
                 <img src={pic1} className="h-44 w-44 rounded-full"></img>
                 <img src={pic2} className="h-56"></img>
@@ -29,11 +30,9 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="flex h-96 ">
-          <div className="w-2/3 pl-10 pr-10 flex flex-col">
-            <h1 className="text-3xl font-bold 2w-80">
-              What's great about us?
-            </h1>
+        <div className="flex h-96">
+          <div className="w-2/3 flex flex-col">
+            <h1 className="text-3xl font-bold 2w-80">What's great about us?</h1>
             <p className="text-2xl mt-3">
               “We pride ourselves on being the driving force behind a new era of
               Open Science collaboration. What truly sets us apart is our
@@ -53,23 +52,64 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-          <div>
-
-          </div>
+          <div></div>
         </div>
         <div className="flex h-112">
-          <div className="flex flex-col w-1/2 items-center justify-center p-3">
-              <h1>Explore Open Science projects...</h1>
-              <div>
-
+          <div className="flex flex-col w-2/3 justify-evenly">
+            <h1 className="flex text-3xl">Explore Open Science projects...</h1>
+            <div className="flex w-full h-88 ">
+              <div className="flex flex-col w-1/2 ">
+                <span className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Life Sciences & Biology
+                </span>
+                <span className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Medicine & Healthcare
+                </span>
+                <span className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Physical & Particle Research
+                </span>
+                <span className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Astronomy / Space Exploration
+                </span>
+                <span className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Chemistry & Materials Science
+                </span>
               </div>
+              <div className="flex flex-col w-1/2">
+                <span className="flex w-64 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Environmental Science
+                </span>
+                <span className="flex w-64 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Data Science & AI
+                </span>
+                <span className="flex w-64 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Social Sciences
+                </span>
+                <span className="flex w-64 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Archaeology/Anthropology
+                </span>
+                <span className="flex w-64 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center text-xl">
+                  Engineering & Technology
+                </span>
+              </div>
+            </div>
           </div>
           <div className="flex w-1/2">
-              <img></img>
+            <img src={pic4} className="h-3/4 m-auto rounded-lg"></img>
+          </div>
+        </div>
+        <div className="flex flex-col h-144">
+          <div className="flex h-2/3">
+            <h1 className="text-2xl">Top Projects</h1>
+            <div>
+
+            </div>
+          </div>
+          <div className="flex h-1/3">
+            <h1 className="text-2xl">Trusted By</h1>
           </div>
         </div>
       </div>
-      
     </>
   );
 };
