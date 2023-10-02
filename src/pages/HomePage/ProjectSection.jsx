@@ -33,8 +33,8 @@ const ProjectSection = () => {
     },
   ];
   return (
-    <div className="flex flex-col h-164 pl-10 pr-10 bg-white">
-      <div className="flex h-3/5 flex-col">
+    <div className="flex flex-col h-172 pl-10 pr-10 bg-white justify-between">
+      <div className="flex h-fit flex-col">
         <h1 className="text-2xl mb-3">Top Projects</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
           {data1.map((val, index) => {
@@ -49,7 +49,7 @@ const ProjectSection = () => {
           })}
         </div>
       </div>
-      <div className="flex h-2/5 flex-col">
+      <div className="flex h-fit flex-col py-10">
         <h1 className="text-2xl mt-2">Trusted By</h1>
         <div className="grid grid-cols-4 gap-5 mt-3 p-3">
           {[l1, l2, l3, l4].map((imageSrc, index) => (
