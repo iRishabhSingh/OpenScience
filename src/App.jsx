@@ -9,6 +9,7 @@ import AuthForm from "./pages/AuthForm/AuthForm";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import Listing from "./pages/Listing";
 import Profile from "./pages/Profile";
+import Projects from "./pages/Project/Projects";
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
         <Route path="/select-role" element={<Card />} />
         <Route path="/listing" element={<Listing />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/projects" element={<Projects/>}/>
       </Routes>
       <Footer />
     </>
