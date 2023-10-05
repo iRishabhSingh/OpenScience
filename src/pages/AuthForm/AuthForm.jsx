@@ -1,23 +1,50 @@
-import { useState } from "react";
+import {React, useState } from "react";
 import "./AuthForm.css";
-
+import axios from "axios"
+import { NavLink, useNavigate } from "react-router-dom";
 const AuthForm = () => {
-  const [email, setEmail] = useState("");
   const [showOtpPopup, setShowOtpPopup] = useState(false);
-
-  const isEmailValid = (email) => {
-    // Simple email validation
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  const [user,setUser] = useState({
+    name:"",
+    email:"",
+    password:"",
+    confirmpassword:""
+  })
+  // const navigate = useNavigate();
+  const handleChange = (e) => {
+    const {name,value} = e.target
+    setUser({
+      ...user,
+      [name] : value
+    })
+  }
+  const isEmailValid = ((emailid) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailid);
+  });
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Handle login logic here
+    axios.post("http://localhost:8989/api/v1/auth/login",user)
+    .then((res)=>{
+      alert(res.data.message);
+    })
+    .catch((error)=>{
+      alert("Error in Login!")
+      console.log(error);
+    })
   };
 
-  const handleSignup = (e) => {
+  const handleSignup = async() => {
     e.preventDefault();
     // Handle signup logic here
+    axios.post("http://localhost:8989/api/v1/auth/register",user)
+    .then((res)=>{
+      alert(res.data.message);
+    })
+    .catch((error)=>{
+      alert("Error in Registration!")
+      console.log(error)
+    })
   };
 
   const handleVerify = () => {
@@ -34,13 +61,14 @@ const AuthForm = () => {
       <div className="center-wrap">
         <div className="section text-center">
           <h4 className="mb-4 pb-3">Log In</h4>
-          <form onSubmit={handleLogin}>
             <div className="form-group">
               <input
                 type="email"
                 className="form-style"
                 placeholder="Email"
-                aria-label="Email"
+                name = "email"
+                value={user.email}
+                onChange={handleChange}
               />
               <i className="input-icon uil uil-at"></i>
             </div>
@@ -49,18 +77,19 @@ const AuthForm = () => {
                 type="password"
                 className="form-style"
                 placeholder="Password"
-                aria-label="Password"
+                name = "password"
+                value = {user.password}
+                onChange={handleChange}
               />
               <i className="input-icon uil uil-lock-alt"></i>
             </div>
-            <button type="submit" className="btn mt-4">
+            <button type="submit" className="btn mt-4" onClick={handleLogin}>
               Login
             </button>
-          </form>
           <p className="mb-0 mt-4 text-center">
-            <a href="#" className="link">
+            <NavLink to="/reset-password" className="link">
               Forgot your password?
-            </a>
+            </NavLink>
           </p>
         </div>
       </div>
@@ -72,13 +101,15 @@ const AuthForm = () => {
       <div className="center-wrap">
         <div className="section text-center">
           <h4 className="mb-3 pb-3">Sign Up</h4>
-          <form onSubmit={handleSignup}>
             <div className="form-group">
               <input
                 type="text"
                 className="form-style"
                 placeholder="Full Name"
                 aria-label="Full Name"
+                name = "name"
+                value = {user.name}
+                onChange = {handleChange}
               />
               <i className="input-icon uil uil-user"></i>
             </div>
@@ -88,15 +119,17 @@ const AuthForm = () => {
                 className="form-style"
                 placeholder="Email"
                 aria-label="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name = "email"
+                value={user.email}
+                onChange={handleChange}
+
               />
               <i className="input-icon uil uil-at"></i>
               <button
                 type="button"
                 className="btn"
                 onClick={handleVerify}
-                disabled={!isEmailValid(email)}
+                // disabled={!isEmailValid(emailid)}
               >
                 Verify
               </button>
@@ -107,6 +140,9 @@ const AuthForm = () => {
                 className="form-style"
                 placeholder="Password"
                 aria-label="Password"
+                name = "password"
+                value={user.password}
+                onChange={handleChange}
               />
               <i className="input-icon uil uil-lock-alt"></i>
             </div>
@@ -116,19 +152,22 @@ const AuthForm = () => {
                 className="form-style"
                 placeholder="Confirm Password"
                 aria-label="Confirm Password"
+                name = "confirmpassword"
+                value={user.confirmpassword}
+                onChange={handleChange}
               />
               <i className="input-icon uil uil-lock-alt"></i>
             </div>
-            <button type="submit" className="btn mt-4">
+            <button type="submit" className="btn mt-4" onClick={handleSignup}>
               Register
             </button>
-          </form>
         </div>
       </div>
     </div>
   );
 
   return (
+    <>
     <div className="section flex justify-center">
       <div className="container">
         <div className="row full-height justify-content-center">
@@ -178,6 +217,7 @@ const AuthForm = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
