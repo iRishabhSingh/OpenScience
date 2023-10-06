@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        'half': '45vh',
-        'onehalf': "9.9vh",
-        "144":"33.99rem",
-        "112":"28rem",
-        "88":"22rem",
-        "164": "41rem"
-      }
+        half: "45vh",
+        onehalf: "9.9vh",
+        144: "33.99rem",
+        112: "28rem",
+        88: "22rem",
+        164: "41rem",
+      },
     },
   },
-  plugins: [require("tw-elements/dist/plugin.cjs")],
-}
+  plugins: [require("tw-elements/dist/plugin.cjs"), require("daisyui")],
+};
