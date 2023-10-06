@@ -3,14 +3,13 @@ import "./AuthForm.css";
 import axios from "axios"
 import { NavLink, useNavigate } from "react-router-dom";
 const AuthForm = () => {
-  const [showOtpPopup, setShowOtpPopup] = useState(false);
   const [user,setUser] = useState({
     name:"",
     email:"",
     password:"",
     confirmpassword:""
   })
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const {name,value} = e.target
     setUser({
@@ -18,9 +17,6 @@ const AuthForm = () => {
       [name] : value
     })
   }
-  const isEmailValid = ((emailid) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailid);
-  });
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -45,15 +41,6 @@ const AuthForm = () => {
       alert("Error in Registration!")
       console.log(error)
     })
-  };
-
-  const handleVerify = () => {
-    // Logic to send OTP
-    setShowOtpPopup(true);
-  };
-
-  const toggleOtpPopup = () => {
-    setShowOtpPopup(!showOtpPopup);
   };
 
   const Login = () => (
@@ -125,14 +112,6 @@ const AuthForm = () => {
 
               />
               <i className="input-icon uil uil-at"></i>
-              <button
-                type="button"
-                className="btn"
-                onClick={handleVerify}
-                // disabled={!isEmailValid(emailid)}
-              >
-                Verify
-              </button>
             </div>
             <div className="form-group mt-2">
               <input
@@ -194,28 +173,7 @@ const AuthForm = () => {
           </div>
         </div>
       </div>
-      {showOtpPopup && (
-        <div className="otp-popup">
-          <form className="otp-content">
-            <h3>Enter OTP</h3>
-            <div className="form-group mt-2">
-              <input
-                type="text"
-                className="form-style"
-                placeholder="Enter OTP"
-                aria-label="OTP"
-              />
-              <i className="input-icon uil uil-lock-alt"></i>
-            </div>
-            <div>
-              <button type="submit">Submit OTP</button>
-              <button type="button" onClick={toggleOtpPopup}>
-                Close
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
+  
     </div>
     </>
   );
