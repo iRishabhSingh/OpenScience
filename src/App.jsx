@@ -13,7 +13,7 @@ import Projects from "./pages/Project/Projects";
 import Views from "./pages/Dashboard/View";
 function App() {
   return (
-    <>
+    <div className="text-black">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -27,7 +27,7 @@ function App() {
         <Route path="/createfeed" element={<Views/>}/>
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 
