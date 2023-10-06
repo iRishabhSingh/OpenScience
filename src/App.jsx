@@ -11,6 +11,7 @@ import Listing from "./pages/Listing";
 import Profile from "./pages/Profile";
 import Projects from "./pages/Project/Projects";
 import Views from "./pages/Dashboard/View";
+import AdminPage from "./pages/Admin/index.jsx";
 function App() {
   return (
     <div className="text-black">
@@ -23,8 +24,9 @@ function App() {
         <Route path="/select-role" element={<Card />} />
         <Route path="/listing" element={<Listing />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/projects" element={<Projects/>}/>
-        <Route path="/createfeed" element={<Views/>}/>
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/createfeed" element={<Views />} />
+        <Route path="/admin/vi/api/adminpage" element={<AdminPage />} />
       </Routes>
       <Footer />
     </div>
