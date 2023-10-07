@@ -3,9 +3,10 @@ import pic1 from "../../assets/1.jpg";
 import pic2 from "../../assets/2.jpg";
 import pic3 from "../../assets/3.jpg";
 import { motion } from "framer-motion";
+import group1 from "../../assets/home/homepg-sec1.png";
 const HeroSection = () => {
   return (
-    <>
+    <d>
       <div className="flex h-[80vh] items-center pl-10 pr-10">
         <div className="flex-1">
           <div className="flex gap-5 justify-center">
@@ -34,21 +35,21 @@ const HeroSection = () => {
             />
           </div>
         </div>
-        <div className="flex w-1/3">
-          <div className="flex flex-col h-48 w-3/4 m-auto p-2 justify-center">
-            <p className="font-bold text-2xl justify-center font-serif">
+        <div className="flex w-1/2">
+          <div className="flex flex-col justify-start">
+            <p className="text-5xl text-start font-serif w-full pb-5">
               "Crafting Tomorrow's Breakthroughs Today: Explore Open Science"
             </p>
-            <button className="mt-3 h-12 p-3 w-fit rounded-md bg-[#003366] text-white items-center font-serif" >
+            <button className="mt-3 h-12 p-3 w-fit rounded-md bg-[#003366] text-white items-center font-serif">
               <NavLink to="/register">Join the Largest Community</NavLink>
             </button>
           </div>
         </div>
       </div>
-      <div className="flex h-96 pl-10 pr-10 bg-white">
-        <div className="w-2/3 flex flex-col">
-          <h1 className="text-2xl font-bold 2w-80">What's great about us?</h1>
-          <p className="text-xl mt-3">
+      <div className="flex h-96 pl-10 pr-10 bg-white items-center">
+        <div className="w-2/3 flex flex-col pl-10">
+          <h1 className="text-4xl">What's great about us?</h1>
+          <p className="text-xl mt-3 text-justify">
             “We pride ourselves on being the driving force behind a new era of
             Open Science collaboration. What truly sets us apart is our
             relentless commitment to fostering innovation and discovery. Our
@@ -67,8 +68,11 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
+        <div className="w-1/3">
+          <img src={group1} />
+        </div>
       </div>
-    </>
+    </d>
   );
 };
 

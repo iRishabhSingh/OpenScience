@@ -14,7 +14,7 @@ const Projects = () => {
     "Engineering & Technology",
   ];
   return (
-    <div className="flex h-112 pl-10 pr-10 bg-white">
+    <div className="flex h-112 pl-20 pr-10 bg-white">
       <div className="flex flex-col w-2/3 justify-evenly">
         <h1 className="flex text-3xl">Explore Open Science projects...</h1>
         <div className="flex w-full h-88 ">

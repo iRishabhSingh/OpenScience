@@ -7,7 +7,7 @@ const Projects = () => {
     <>
       <ChatButton />
       <div className="overflow-auto">
-        <div className="bg-gradient-to-b from-[#B7EFFB] to-white flex flex-col pl-5 pr-5">
+        <div className="flex flex-col pl-5 pr-5">
           <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
             <div className="-m-1 flex flex-wrap items-center justify-around md:-m-2">
               <div className="flex w-1/2 flex-wrap">

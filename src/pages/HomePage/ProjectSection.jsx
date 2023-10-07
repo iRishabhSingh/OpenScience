@@ -119,7 +119,7 @@ const ProjectSection = () => {
     },
   ];
   return (
-    <div className="flex flex-col h-172 pl-10 pr-10 bg-white justify-between">
+    <div className="flex flex-col h-172 pl-20 pr-10 bg-white justify-between">
       <div className="flex h-fit flex-col">
         <h1 className="text-2xl mb-3">Top Projects</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
