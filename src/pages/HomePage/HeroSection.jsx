@@ -41,7 +41,7 @@ const HeroSection = () => {
             <p className="text-5xl text-start font-serif w-full pb-5">
               "Crafting Tomorrow's Breakthroughs Today: Explore Open Science"
             </p>
-            <Button variant="flat" color="primary" className="mt-4">
+            <Button variant="flat" color="primary" className="mt-4 w-1/2">
               <NavLink to="/register">Join the Largest Community</NavLink>
               <svg
                 fill="none"

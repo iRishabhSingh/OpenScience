@@ -15,7 +15,7 @@ import AdminPage from "./pages/AdminPage";
 import About_us from "./pages/Aboutus/About_us";
 function App() {
   return (
-    <div className="text-black font-[ Source Serif Pro]">
+    <div className="text-black font-[Source Serif Pro]">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
