@@ -1,5 +1,5 @@
 import { Button, Link } from "@nextui-org/react";
-import pic4 from "../../assets/4.jpg";
+import pic4 from "../../assets/4.png";
 
 const Projects = () => {
   const buttonLabels = [

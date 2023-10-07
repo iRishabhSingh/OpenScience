@@ -7,8 +7,8 @@ import { Button, ButtonGroup, Divider } from "@nextui-org/react";
 import group1 from "../../assets/home/homepg-sec1.png";
 const HeroSection = () => {
   return (
-    <d>
-      <div className="flex h-[80vh] items-center pl-10 pr-10">
+    <div>
+      <div className="flex my-[7rem] items-center pl-10 pr-10">
         <div className="flex-1">
           <div className="flex gap-5 justify-center">
             <motion.img
@@ -39,7 +39,8 @@ const HeroSection = () => {
         <div className="flex w-1/2">
           <div className="flex flex-col justify-start">
             <p className="text-5xl text-start font-serif w-full pb-5">
-              "Crafting Tomorrow's Breakthroughs Today: Explore Open Science"
+              &quot;Crafting Tomorrow&apos;s Breakthroughs Today - Explore Open
+              Science
             </p>
             <Button variant="flat" color="primary" className="mt-4 w-1/2">
               <NavLink to="/register">Join the Largest Community</NavLink>
@@ -60,16 +61,18 @@ const HeroSection = () => {
       </div>
       <div className="flex h-96 pl-10 pr-10 bg-white items-center">
         <div className="w-2/3 flex flex-col pl-10">
-          <h1 className="text-4xl">What's great about us?</h1>
-          <p className="text-xl mt-3 text-justify">
+          <h1 className="text-4xl mb-3 font-bold">
+            What&apos;s great about us?
+          </h1>
+          <p className="text-lg mt-3 lg:mr-4 font-light text-justify">
             “We pride ourselves on being the driving force behind a new era of
             Open Science collaboration. What truly sets us apart is our
             relentless commitment to fostering innovation and discovery. Our
             AI-powered platform is revolutionizing the way creators and
             collaborators connect. We provide personalized project
             recommendations, ensuring that your skills and passions find their
-            perfect match. With seamless communication tools, we're breaking
-            down boundaries and uniting brilliant minds worldwide.”
+            perfect match. With seamless communication tools, we&apos;re
+            breaking down boundaries and uniting brilliant minds worldwide.”
           </p>
           <div className="flex mt-5">
             <ButtonGroup color="primary">
@@ -80,10 +83,11 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="w-1/3">
-          <img src={group1} />
+          {/* <img src={group1} /> */}
+          <img src={group1} alt="Description" className="float" />
         </div>
       </div>
-    </d>
+    </div>
   );
 };
 
