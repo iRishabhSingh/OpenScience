@@ -15,10 +15,22 @@ const HeroSection = () => {
               src={pic1}
               className="w-32 h-32 md:w-56 md:h-56 rounded-full"
             />
-            <img src={pic2} className="w-32 h-32 md:w-56 md:h-56" />
+            <motion.img
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              src={pic2}
+              className="w-32 h-32 md:w-56 md:h-56"
+            />
           </div>
           <div className="flex justify-center mt-5">
-            <img src={pic3} className="md:h-40" />
+            <motion.img
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              src={pic3}
+              className="md:h-40"
+            />
           </div>
         </div>
         <div className="flex w-1/3">
