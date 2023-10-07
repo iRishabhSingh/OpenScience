@@ -19,13 +19,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about-us" element={<About_us />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/listing" element={<Listing />} />
         <Route path="/register" element={<AuthForm />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/select-role" element={<Card />} />
-        <Route path="/listing" element={<Listing />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/projects" element={<Projects />} />
         <Route path="/create-feed" element={<Views />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/about-us" element={<About_us />} />

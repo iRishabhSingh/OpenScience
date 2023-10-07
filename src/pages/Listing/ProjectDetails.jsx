@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const ProjectDetails = () => {
@@ -14,7 +14,7 @@ const ProjectDetails = () => {
     { value: "9", label: "Archaeology & Anthropology" },
     { value: "10", label: "Engineering & Technology" },
   ];
-  const skilloptions = [
+  const skillOptions = [
     { value: "1", label: "Select Skills", disabled: true },
     { value: "2", label: "Web Development and Hosting" },
     { value: "3", label: "Data Management and Analysis" },
@@ -140,7 +140,7 @@ const ProjectDetails = () => {
               value={skills}
               onChange={(e) => setSkills(e.target.value)}
             >
-              {skilloptions.map((option) => (
+              {skillOptions.map((option) => (
                 <option
                   key={option.value}
                   value={option.label}
