@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import pic1 from "../../assets/1.jpg";
 import pic2 from "../../assets/2.jpg";
 import pic3 from "../../assets/3.jpg";
@@ -22,8 +23,8 @@ const HeroSection = () => {
             <p className="font-bold text-2xl justify-center font-serif">
               "Crafting Tomorrow's Breakthroughs Today: Explore Open Science"
             </p>
-            <button className="mt-3 h-12 w-56 rounded-md bg-[#003366] text-white items-center font-serif">
-              Join the Largest Community
+            <button className="mt-3 h-12 p-3 w-fit rounded-md bg-[#003366] text-white items-center font-serif" >
+              <NavLink to="/register">Join the Largest Community</NavLink>
             </button>
           </div>
         </div>
