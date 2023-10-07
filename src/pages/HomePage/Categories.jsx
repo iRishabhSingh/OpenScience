@@ -1,5 +1,6 @@
+import { Button, Link } from "@nextui-org/react";
 import pic4 from "../../assets/4.jpg";
-import { NavLink } from "react-router-dom";
+
 const Projects = () => {
   const buttonLabels = [
     "Life Sciences & Biology",
@@ -15,37 +16,35 @@ const Projects = () => {
   ];
   return (
     <div className="flex h-112 pl-10 pr-10 bg-white">
-      <div className="flex flex-col w-2/3 justify-evenly">
+      <div className="flex flex-col flex-wrap gap-4 w-2/3 justify-evenly">
         <h1 className="flex text-3xl">Explore Open Science projects...</h1>
-        <div className="flex w-full h-88 ">
-          <div className="flex flex-col w-1/2 ">
+        <div className="flex gap-4 w-full h-88 ">
+          <div className="flex flex-col gap-4 w-1/2 ">
             {buttonLabels.slice(0, 5).map((label, index) => (
-              <button
+              <Button
                 key={index}
-                className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center"
+                variant="ghost"
+                color="primary"
+                className="h-12"
               >
-                <NavLink
-                  to={`/${label.replace(/ /g, "-")}`}
-                  className="text-md"
-                >
+                <Link to={`/${label.replace(/ /g, "-")}`} className="text-blue">
                   {label}
-                </NavLink>
-              </button>
+                </Link>
+              </Button>
             ))}
           </div>
-          <div className="flex flex-col w-1/2 ">
+          <div className="flex flex-col gap-4 w-1/2 ">
             {buttonLabels.slice(5, 10).map((label, index) => (
-              <button
+              <Button
                 key={index}
-                className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center"
+                variant="ghost"
+                color="primary"
+                className="h-12"
               >
-                <NavLink
-                  to={`/${label.replace(/ /g, "-")}`}
-                  className="text-md"
-                >
+                <Link to={`/${label.replace(/ /g, "-")}`} className="text-blue">
                   {label}
-                </NavLink>
-              </button>
+                </Link>
+              </Button>
             ))}
           </div>
         </div>
