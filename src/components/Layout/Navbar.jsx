@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { Sidenav, initTE } from "tw-elements";
 import UserDrawer from "../ProfileCard/UserDrawer";
+import { Button } from "@nextui-org/react";
+
 const Navbar = () => {
-  initTE({ Sidenav });
   return (
     <>
-      <header>
+      <header className="z-0">
         <div className="container mx-auto justify-around flex p-5 flex-col md:flex-row items-center">
           <NavLink
             to="/"
@@ -15,15 +15,15 @@ const Navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
               viewBox="0 0 24 24"
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
             </svg>
-            <span className="ml-3 text-xl">Tailblocks</span>
+            <span className="ml-3 text-xl">OpenScience</span>
           </NavLink>
 
           <div className="flex">
@@ -31,7 +31,7 @@ const Navbar = () => {
               <NavLink to="/" className="mr-5 hover:text-gray-900">
                 Home
               </NavLink>
-              <NavLink to="/aboutus" className="mr-5 hover:text-gray-900">
+              <NavLink to="/about-us" className="mr-5 hover:text-gray-900">
                 About
               </NavLink>
               <NavLink to="/projects" className="mr-5 hover:text-gray-900">
@@ -43,11 +43,8 @@ const Navbar = () => {
               <NavLink to="/listing" className="mr-5 hover:text-gray-900">
                 Listing
               </NavLink>
-              <NavLink to="/profile" className="mr-5 hover:text-gray-900">
-                Profile
-              </NavLink>
             </nav>
-            <div className="drawer drawer-end">
+            <div className="drawer drawer-end flex justify-center items-center">
               <input
                 id="my-drawer-4"
                 type="checkbox"
@@ -59,34 +56,34 @@ const Navbar = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class="w-14 h-14 bg-white rounded-full"
+                    className="w-14 h-14 bg-white rounded-full"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
                 </label>
               </div>
               <UserDrawer />
+              <Button color="primary" className="z-0">
+                <NavLink to="/register">Login</NavLink>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="w-4 h-4 ml-1"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </Button>
             </div>
-            <button className="btn">
-              <NavLink to="/register">Login</NavLink>
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                className="w-4 h-4 ml-1"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button>
           </div>
         </div>
       </header>

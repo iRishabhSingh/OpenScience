@@ -3,6 +3,7 @@ import pic1 from "../../assets/1.jpg";
 import pic2 from "../../assets/2.jpg";
 import pic3 from "../../assets/3.jpg";
 import { motion } from "framer-motion";
+import { Button, ButtonGroup, Divider } from "@nextui-org/react";
 import group1 from "../../assets/home/homepg-sec1.png";
 const HeroSection = () => {
   return (
@@ -40,9 +41,20 @@ const HeroSection = () => {
             <p className="text-5xl text-start font-serif w-full pb-5">
               "Crafting Tomorrow's Breakthroughs Today: Explore Open Science"
             </p>
-            <button className="mt-3 h-12 p-3 w-fit rounded-md bg-[#003366] text-white items-center font-serif">
+            <Button variant="flat" color="primary" className="mt-4">
               <NavLink to="/register">Join the Largest Community</NavLink>
-            </button>
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-4 h-4 ml-1"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </Button>
           </div>
         </div>
       </div>
@@ -60,12 +72,11 @@ const HeroSection = () => {
             down boundaries and uniting brilliant minds worldwide.”
           </p>
           <div className="flex mt-5">
-            <button className="flex text-white mr-5 h-10 bg-[#003366] w-32 p-2 text-lg items-center justify-center rounded-md font-serif">
-              Be a Creator
-            </button>
-            <button className="flex text-white h-10 bg-[#003366] w-44 p-2 text-lg items-center justify-center rounded-md font-serif">
-              Be a Collaborator
-            </button>
+            <ButtonGroup color="primary">
+              <Button>Be a Creator</Button>
+              <Divider orientation="vertical" className="bg-black" />
+              <Button>Be a Collaborator</Button>
+            </ButtonGroup>
           </div>
         </div>
         <div className="w-1/3">
