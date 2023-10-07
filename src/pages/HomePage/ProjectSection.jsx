@@ -1,10 +1,97 @@
-import ProjectCard from "./ProjectCard";
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Autoplay } from "swiper/modules";
 import l1 from "../../assets/l1.png";
 import l2 from "../../assets/l2.png";
 import l3 from "../../assets/l3.jfif";
 import l4 from "../../assets/l4.png";
+
+import ProjectCard from "./ProjectCard";
 const ProjectSection = () => {
   const data1 = [
+    {
+      title: "abcd for abceefasdasndm ",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasda sndm;cvzs",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdas ndm;cvzsan",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsandm",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsand",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasda sndm;cvzs",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdas ndm;cvzsan",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsandm",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsand",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasda sndm;cvzs",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdas ndm;cvzsan",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsandm",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsand",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
     {
       title: "abcd for abceefasdasndm ",
       category: "science and exhibition",
@@ -36,16 +123,30 @@ const ProjectSection = () => {
       <div className="flex h-fit flex-col">
         <h1 className="text-2xl mb-3">Top Projects</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-          {data1.map((val, index) => {
-            return (
-              <ProjectCard
-                key={index}
-                name={val.title}
-                category={val.category}
-                src={val.src}
-              />
-            );
-          })}
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={5}
+            autoplay={{
+              delay: 1500,
+            }}
+            breakpoints={{
+              768:{}
+            }}
+            modules={[Autoplay]}
+            className="mySwiper-homepg"
+          >
+            {data1.map((val, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <ProjectCard
+                    name={val.title}
+                    category={val.category}
+                    src={val.src}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
         </div>
       </div>
       <div className="flex h-fit flex-col py-10">

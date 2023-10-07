@@ -1,20 +1,37 @@
+import { NavLink } from "react-router-dom";
 import pic1 from "../../assets/1.jpg";
 import pic2 from "../../assets/2.jpg";
 import pic3 from "../../assets/3.jpg";
+import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <>
       <div className="flex h-[80vh] items-center pl-10 pr-10">
         <div className="flex-1">
           <div className="flex gap-5 justify-center">
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
               src={pic1}
               className="w-32 h-32 md:w-56 md:h-56 rounded-full"
             />
-            <img src={pic2} className="w-32 h-32 md:w-56 md:h-56" />
+            <motion.img
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              src={pic2}
+              className="w-32 h-32 md:w-56 md:h-56"
+            />
           </div>
           <div className="flex justify-center mt-5">
-            <img src={pic3} className="md:h-40" />
+            <motion.img
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              src={pic3}
+              className="md:h-40"
+            />
           </div>
         </div>
         <div className="flex w-1/3">
@@ -22,8 +39,8 @@ const HeroSection = () => {
             <p className="font-bold text-2xl justify-center font-serif">
               "Crafting Tomorrow's Breakthroughs Today: Explore Open Science"
             </p>
-            <button className="mt-3 h-12 w-56 rounded-md bg-[#003366] text-white items-center font-serif">
-              Join the Largest Community
+            <button className="mt-3 h-12 p-3 w-fit rounded-md bg-[#003366] text-white items-center font-serif" >
+              <NavLink to="/register">Join the Largest Community</NavLink>
             </button>
           </div>
         </div>

@@ -25,6 +25,7 @@ const Navbar = () => {
             </svg>
             <span className="ml-3 text-xl">Tailblocks</span>
           </NavLink>
+
           <div className="flex">
             <nav className="flex w-max items-center text-base justify-center">
               <NavLink to="/" className="mr-5 hover:text-gray-900">
