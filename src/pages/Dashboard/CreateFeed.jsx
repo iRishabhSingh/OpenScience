@@ -1,15 +1,58 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
+
 const CreateFeed = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   return (
-    <Link to={"/create-feed"}>
-      <button className="hover:-translate-y-1 py-2 active:translate-y-0 transition bg-[#003366] text-white px-2 md:px-5 rounded flex justify-center place-items-center gap-3 hover:opacity-70">
-        <p>CreateFeed</p>
-        <p className="bg-white rounded-full text-black w-5 h-5 flex justify-center items-center">
-          +
-        </p>
-      </button>
-    </Link>
+    <>
+      <Button color="primary" onPress={onOpen}>
+        Add Feed
+      </Button>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                New Feed
+              </ModalHeader>
+              <ModalBody>
+                <input
+                  className="border rounded p-5"
+                  type="text"
+                  placeholder="Project Title"
+                />
+                <textarea
+                  className="border rounded p-5"
+                  type="text"
+                  placeholder="Project Summary"
+                />
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+                <Button
+                  color="primary"
+                  onClick={() => window.alert("clicked")}
+                  onPress={onClose}
+                >
+                  Create
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
-
 export default CreateFeed;

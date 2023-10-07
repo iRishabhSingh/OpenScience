@@ -5,8 +5,8 @@ const ProjectCard = ({ src, name, category }) => {
         <img className="rounded-md h-60" src={src} alt="" />
       </div>
       <div className="pl-5 py-2">
-        <p className="text-lg text-black">{name}</p>
-        <p className="text-base text-black font-bold tracking-widest">
+        <p className="text-lg text-black break-words">{name}</p>
+        <p className="text-base text-black font-bold break-words tracking-widest">
           {category}
         </p>
       </div>
