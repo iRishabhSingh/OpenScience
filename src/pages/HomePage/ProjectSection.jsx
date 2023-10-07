@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -15,7 +15,18 @@ import l3 from "../../assets/l3.jfif";
 import l4 from "../../assets/l4.png";
 
 import ProjectCard from "./ProjectCard";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
 const ProjectSection = () => {
+  const [projects,setProjects]=useState([]);
+  const fetchData=async ()=>{
+    const res=await fetch("http://localhost:8989/api/v1/project/latest-projects")
+    const data=await res.json()
+    setProjects(data)
+  }
+  useEffect(()=>{
+    fetchData();
+  },[])
   const data1 = [
     {
       title: "abcd for abceefasdasndm ",
@@ -135,14 +146,16 @@ const ProjectSection = () => {
             modules={[Autoplay]}
             className="mySwiper-homepg"
           >
-            {data1.map((val, index) => {
+            {projects.map((val, index) => {
               return (
                 <SwiperSlide key={index}>
+                  <NavLink to={`/projects/${val._id}`}>
                   <ProjectCard
                     name={val.title}
-                    category={val.category}
+                    category={val.domain}
                     src={val.src}
                   />
+                  </NavLink>
                 </SwiperSlide>
               );
             })}
