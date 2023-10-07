@@ -29,6 +29,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/create-feed" element={<Views />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/about-us" element={<About_us />} />
       </Routes>
       <Footer />
     </div>

@@ -1,8 +1,18 @@
 import { NavLink } from "react-router-dom";
 import UserDrawer from "../ProfileCard/UserDrawer";
 import { Button } from "@nextui-org/react";
-
+import { useAuth } from "../../context/auth";
 const Navbar = () => {
+  const [auth, setAuth] = useAuth();
+  const handleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    toast.success("Logout Successfully");
+  };
   return (
     <>
       <header className="z-0">
@@ -31,7 +41,7 @@ const Navbar = () => {
               <NavLink to="/" className="mr-5 hover:text-gray-900">
                 Home
               </NavLink>
-              <NavLink to="/about-us" className="mr-5 hover:text-gray-900">
+              <NavLink to="/aboutus" className="mr-5 hover:text-gray-900">
                 About
               </NavLink>
               <NavLink to="/projects" className="mr-5 hover:text-gray-900">
@@ -44,13 +54,32 @@ const Navbar = () => {
                 Listing
               </NavLink>
             </nav>
-            <div className="drawer drawer-end flex justify-center items-center">
-              <input
-                id="my-drawer-4"
-                type="checkbox"
-                className="drawer-toggle"
-              />
-              <div className="drawer-content">
+              {!auth?.user ? (
+                <>
+                  <Button color="primary" className="z-0">
+                    <NavLink to="/register">Login</NavLink>
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-4 h-4 ml-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </Button>
+                </>
+              ) : (
+                <>
+                <div className="drawer drawer-end flex justify-center items-center">
+                  <input
+                    id="my-drawer-4"
+                    type="checkbox"
+                    className="drawer-toggle"
+                  />
+                <div className="drawer-content">
                 <label htmlFor="my-drawer-4" className="">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -69,21 +98,23 @@ const Navbar = () => {
                 </label>
               </div>
               <UserDrawer />
-              <Button color="primary" className="z-0">
-                <NavLink to="/register">Login</NavLink>
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-1"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </Button>
-            </div>
+                  <Button color="primary" className="z-0">
+                    <NavLink to="/" onClick={handleLogout}>Logout</NavLink>
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-4 h-4 ml-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </Button>
+                  </div>
+                </>
+              )}
           </div>
         </div>
       </header>

@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth.jsx";
 import axios from "axios";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const navigate = useNavigate();
-  
+  const[auth,setAuth] = useAuth();
   const handleLogin = (e) => {
     e.preventDefault();
     axios
@@ -16,6 +17,12 @@ const Login = () => {
       })
       .then((res) => {
         alert(res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+      localStorage.setItem("auth", JSON.stringify(res.data));
         navigate("/dashboard");
       })
       .catch((error) => {
