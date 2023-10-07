@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeroSection from "./HeroSection";
 import Searchbar from "./Searchbar";
 import CreateFeed from "./CreateFeed";
@@ -11,10 +11,10 @@ import { useAuth } from "../../context/auth";
 const Dashboard = () => {
   const [collaborator, setCollaborator] = useState(true);
   const navigate = useNavigate();
-  const [auth,setAuth] = useAuth();
+  const [auth, setAuth] = useAuth();
   useEffect(() => {
     if (!auth?.token) {
-      navigate("/register")
+      navigate("/register");
     }
   }, []);
   return (
