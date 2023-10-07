@@ -12,7 +12,11 @@ import Profile from "./pages/Profile";
 import Projects from "./pages/Project/Projects";
 import Views from "./pages/Dashboard/View";
 import AdminPage from "./pages/AdminPage";
+<<<<<<< HEAD
 import Aboutus from "./pages/About/Aboutus";
+=======
+import About_us from "./pages/Aboutus/About_us";
+>>>>>>> 15453e74392c8fd2468879658b613d0460341c70
 function App() {
   return (
     <div className="text-black">
@@ -28,8 +32,13 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/create-feed" element={<Views />} />
         <Route path="/admin" element={<AdminPage />} />
+<<<<<<< HEAD
         <Route path="/aboutus" element={<Aboutus />}/>
       </Routes>
+=======
+        <Route path="/aboutus" element={<About_us />}/>
+        </Routes>
+>>>>>>> 15453e74392c8fd2468879658b613d0460341c70
       <Footer />
     </div>
   );

@@ -26,6 +26,42 @@ const Navbar = () => {
             </svg>
             <span className="ml-3 text-xl">Tailblocks</span>
           </NavLink>
+<<<<<<< HEAD
+          <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <NavLink to="/" className="mr-5 hover:text-gray-900">
+              Home
+            </NavLink>
+            <NavLink to="/aboutus" className="mr-5 hover:text-gray-900">
+              About Us
+            </NavLink>
+            <NavLink to="/projects" className="mr-5 hover:text-gray-900">
+              Projects
+            </NavLink>
+            <NavLink to="/dashboard" className="mr-5 hover:text-gray-900">
+              Dashboard
+            </NavLink>
+            <NavLink to="/listing" className="mr-5 hover:text-gray-900">
+              Listing
+            </NavLink>
+            <NavLink className="mr-5 hover:text-gray-900">
+              <ProfileCard />
+            </NavLink>
+          </nav>
+          <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+            <NavLink to="/register">Login</NavLink>
+            <svg
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+=======
           <div className="flex">
             <nav className="flex w-max items-center text-base justify-center">
               <NavLink to="/" className="mr-5 hover:text-gray-900">
@@ -88,6 +124,7 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
+>>>>>>> 644f83fbeaee398c97b4173b085d885ca103cfee
         </div>
       </header>
     </>
