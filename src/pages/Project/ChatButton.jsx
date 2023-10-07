@@ -72,10 +72,10 @@ const ChatButton = () => {
   return (
     <>
       <div className="drawer drawer-end">
-        <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+        <input id="my-drawer-5" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           <label
-            htmlFor="my-drawer-4"
+            htmlFor="my-drawer-5"
             className="drawer-button btn btn-primary"
           >
             Open drawer
@@ -83,7 +83,7 @@ const ChatButton = () => {
         </div>
         <div className="drawer-side z-50">
           <label
-            htmlFor="my-drawer-4"
+            htmlFor="my-drawer-5"
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
