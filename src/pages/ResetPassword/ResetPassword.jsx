@@ -1,51 +1,51 @@
 import { useState } from "react";
-
 import "./ResetPassword.css";
-
+import {useNavigate} from "react-router-dom"
+import axios from "axios"
 const ResetPassword = () => {
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setMessage("Passwords do not match");
-      return;
+    try {
+      const res = await axios.post("http://localhost:8989/api/v1/auth/reset-password", {
+        email,
+        password,
+      });
+      if (res && res.data.success) {
+        alert(res.data && res.data.message);
+        navigate("/register");
+      } else {
+        alert(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong");
     }
-
-    // Here, you would typically make an API call to your backend to reset the password.
-    // For the sake of demonstration, I'm just setting a success message.
-    setMessage("Password reset successful");
-
-    // After successful API call, you might also want to redirect the user to the login page.
   };
 
   return (
     <div className="reset-password-section">
       <h2>Reset Password</h2>
-      {message && <p>{message}</p>}
-      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Enter your Email</label>
+          <input
+            type="email"
+            value={email} onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
         <div className="form-group">
           <label>New Password</label>
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={password} onChange={(e) => setpassword(e.target.value)}
             required
           />
         </div>
-        <div className="form-group">
-          <label>Confirm New Password</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+        <button type="submit" onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

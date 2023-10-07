@@ -1,4 +1,31 @@
+import { React, useState } from "react";
+import axios from "axios";
+import { NavLink, useNavigate } from "react-router-dom";
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
+  const [name, setName] = useState("");
+  const [confirmpassword, setconfirmPassword] = useState("");
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:8989/api/v1/auth/register", {
+        name,
+        email,
+        password,
+        confirmpassword,
+      })
+      .then((res) => {
+        alert(res.data.message);
+      })
+      .catch((error) => {
+        alert("Error in Registration!");
+        console.log(error);
+      });
+  };
+
+
   return (
     <div className="card-back">
       <div className="center-wrap">
@@ -11,6 +38,8 @@ const Signup = () => {
               placeholder="Full Name"
               aria-label="Full Name"
               name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <i className="input-icon uil uil-user"></i>
           </div>
@@ -21,6 +50,8 @@ const Signup = () => {
               placeholder="Email"
               aria-label="Email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <i className="input-icon uil uil-at"></i>
           </div>
@@ -31,6 +62,8 @@ const Signup = () => {
               placeholder="Password"
               aria-label="Password"
               name="password"
+              value={password}
+              onChange={(e) => setpassword(e.target.value)}
             />
             <i className="input-icon uil uil-lock-alt"></i>
           </div>
@@ -41,10 +74,12 @@ const Signup = () => {
               placeholder="Confirm Password"
               aria-label="Confirm Password"
               name="confirm-password"
+              value={confirmpassword}
+              onChange={(e) => setconfirmPassword(e.target.value)}
             />
             <i className="input-icon uil uil-lock-alt"></i>
           </div>
-          <button type="submit" className="btn mt-4">
+          <button type="submit" className="btn mt-4" onClick={handleSignup}>
             Register
           </button>
         </div>

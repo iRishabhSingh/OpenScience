@@ -18,7 +18,7 @@ const UserProfile = () => {
     fetch("")
       .then((response) => response.json())
       .then((data) => setUserData(data))
-      .catch((error) => console.error("Error fetching user data:", error));
+      .catch((err) => console.error("Error fetching user data:", err));
 
     // Add event listener for clicks
     document.addEventListener("mousedown", handleClickOutside);
@@ -36,6 +36,7 @@ const UserProfile = () => {
   };
 
   return (
+    <>
     <div className="relative" ref={profileRef}>
       <img
         src={userData.profileImage}
@@ -60,7 +61,7 @@ const UserProfile = () => {
             src={userData.profileImage}
             alt="profile"
             className="w-24 h-24 rounded-full mx-auto"
-          />
+            />
           <div className="text-center mt-4">
             <p className="font-semibold">{userData.name}</p>
             <p className="text-sm text-gray-500 mb-4">{userData.email}</p>
@@ -68,7 +69,7 @@ const UserProfile = () => {
               <a
                 href="/rating"
                 className="hover:text-blue-500 transition duration-300 ease-in-out"
-              >
+                >
                 <span role="img" aria-label="star">
                   ⭐️
                 </span>{" "}
@@ -77,7 +78,7 @@ const UserProfile = () => {
               <a
                 href="/ranking"
                 className="hover:text-blue-500 transition duration-300 ease-in-out"
-              >
+                >
                 <span role="img" aria-label="graph">
                   📊
                 </span>{" "}
@@ -96,10 +97,10 @@ const UserProfile = () => {
             <button
               className={`w-full p-2 rounded mt-4 transition duration-300 ease-in-out ${
                 userData.profileCompletion === 100
-                  ? "bg-blue-500 text-white hover:bg-blue-700"
-                  : "bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                ? "bg-blue-500 text-white hover:bg-blue-700"
+                : "bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
               }`}
-            >
+              >
               {userData.profileCompletion === 100
                 ? "Edit Profile"
                 : "Complete Profile"}
@@ -116,8 +117,8 @@ const UserProfile = () => {
               "Settings",
             ].map((option) => (
               <li
-                key={option}
-                className="py-2 px-4 hover:bg-gray-200 rounded cursor-pointer"
+              key={option}
+              className="py-2 px-4 hover:bg-gray-200 rounded cursor-pointer"
               >
                 {option}
               </li>
@@ -130,6 +131,7 @@ const UserProfile = () => {
         </div>
       )}
     </div>
+      </>
   );
 };
 
