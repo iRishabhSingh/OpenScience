@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Sidenav, initTE } from "tw-elements";
+import { useState } from "react";
 
 const UserDrawer = () => {
   const [userData, setUserData] = useState({
@@ -12,7 +11,7 @@ const UserDrawer = () => {
     projectCount: 8,
   });
   return (
-    <div className="drawer-side">
+    <div className="drawer-side z-10">
       <label
         htmlFor="my-drawer-4"
         aria-label="close sidebar"
