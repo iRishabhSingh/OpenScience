@@ -4,7 +4,7 @@ import pic3 from "../../assets/3.jpg";
 const HeroSection = () => {
   return (
     <>
-      <div className="flex h-112 bg-gradient-to-b from-[#B7EFFB] to-white pl-10 pr-10">
+      <div className="flex h-[80vh] items-center pl-10 pr-10">
         <div className="flex-1">
           <div className="flex gap-5 justify-center">
             <img

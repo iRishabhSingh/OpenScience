@@ -1,4 +1,6 @@
 import ChatButton from "./ChatButton";
+import { Select, SelectItem } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 
 const Projects = () => {
   return (
@@ -7,76 +9,45 @@ const Projects = () => {
       <div className="overflow-auto">
         <div className="bg-gradient-to-b from-[#B7EFFB] to-white flex flex-col pl-5 pr-5">
           <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
-            <div className="-m-1 flex flex-wrap md:-m-2">
+            <div className="-m-1 flex flex-wrap items-center justify-around md:-m-2">
               <div className="flex w-1/2 flex-wrap">
                 <div className="w-full p-1 md:p-2">
                   <img
                     alt="gallery"
-                    className="block h-full w-full rounded-lg object-cover object-center transition duration-300 ease-in-out hover:scale-110"
+                    className="block h-full w-full rounded-lg object-cover object-center transition duration-300 ease-in-out"
                     src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
                   />
                 </div>
               </div>
-              <div className="flex w-1/2 flex-wrap absolute-right-0">
-                <div>
-                  <h1 className="text-2xl font-bold  left-9 ml-5">
-                    Project title: &quot;Global Climate Observations
-                    Initiative(GCOI)&quot;
+              <div className="flex w-1/3 flex-wrap absolute-right-0">
+                <div className="flex flex-col gap-4">
+                  <h1 className="text-2xl font-bold left-9 ml-5">
+                    &quot;Global Climate Observations Initiative (GCOI)&quot;
                   </h1>
-                  <br />
-                  <div className="flex w-1/3">
-                    <label
-                      className="block  font-bold "
-                      htmlFor="inline-Skills"
-                    >
-                      DOMAIN:
-                    </label>
+                  <div className="flex w-2/3">
+                    <Select label="Domain" className="max-w-xs">
+                      <SelectItem key="ML" value="Machine learning">
+                        Machine learning
+                      </SelectItem>
+                      <SelectItem key="ML" value="Machine learning">
+                        HTML
+                      </SelectItem>
+                      <SelectItem key="ML" value="Machine learning">
+                        MERN
+                      </SelectItem>
+                      <SelectItem key="ML" value="Machine learning">
+                        SCALA
+                      </SelectItem>
+                      <SelectItem key="ML" value="Machine learning">
+                        FRONTEND
+                      </SelectItem>
+                    </Select>
                   </div>
                   <div className="flex w-2/3">
-                    <select
-                      className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                      id="grid-state"
-                    >
-                      <option>Machine learning</option>
-                      <option>HTML</option>
-                      <option>MERN</option>
-                      <option>SCALA</option>
-                      <option>FRONTEND</option>
-                    </select>
-                  </div>
-                  <div className="flex w-1/3">
-                    <label
-                      className="block  font-bold "
-                      htmlFor="inline-Skills"
-                    >
-                      Skills:
-                    </label>
+                    <Input type="text" label="Skill" />
                   </div>
                   <div className="flex w-2/3">
-                    <input
-                      type="text"
-                      id="first_name"
-                      className="bg-gray-200 border border-gray-300 text-gray-700 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="e.g. AIML"
-                      required
-                    />
-                  </div>
-                  <div className="flex w-1/3">
-                    <label
-                      className="block  font-bold "
-                      htmlFor="inline-Skills"
-                    >
-                      EXPERTISE:
-                    </label>
-                  </div>
-                  <div className="flex w-2/3">
-                    <input
-                      type="text"
-                      id="first_name"
-                      className="bg-gray-200 border border-gray-300 text-gray-700 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Expertise"
-                      required
-                    />
+                    <Input type="text" label="Expertise" />
                   </div>
                 </div>
               </div>
