@@ -1,13 +1,17 @@
 import pic1 from "../../assets/1.jpg";
 import pic2 from "../../assets/2.jpg";
 import pic3 from "../../assets/3.jpg";
+import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <>
-      <div className="flex h-112 bg-gradient-to-b from-[#B7EFFB] to-white pl-10 pr-10">
+      <div className="flex items-center h-[80vh] bg-gradient-to-b from-[#B7EFFB] to-white pl-10 pr-10">
         <div className="flex-1">
           <div className="flex gap-5 justify-center">
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
               src={pic1}
               className="w-32 h-32 md:w-56 md:h-56 rounded-full"
             />
