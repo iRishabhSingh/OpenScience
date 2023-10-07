@@ -12,9 +12,10 @@ import Profile from "./pages/Profile";
 import Projects from "./pages/Project/Projects";
 import Views from "./pages/Dashboard/View";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
+import AdminPage from "./pages/AdminPage";
 function App() {
   return (
-    <>
+    <div className="text-black">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -27,9 +28,10 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/create-feed" element={<Views />} />
         <Route path="/profile-card" element={<ProfileCard />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

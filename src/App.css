@@ -3,3 +3,9 @@
   margin: 0px;
   padding: 0px;
 }
+
+input,
+select,
+textarea {
+  background-color: white;
+}
