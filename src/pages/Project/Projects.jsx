@@ -15,7 +15,7 @@ const Projects = () => {
             </div>
             <div className="flex w-1/2 flex-wrap absolute-right-0">
               <div>
-                <h1 className="text-2xl font-bold dark:text-white left-9 ml-5">
+                <h1 className="text-2xl font-bold  left-9 ml-5">
                   Project title: &quot;Global Climate Observations
                   Initiative(GCOI)&quot;
                 </h1>
@@ -46,7 +46,7 @@ const Projects = () => {
                   <input
                     type="text"
                     id="first_name"
-                    className="bg-gray-200 border border-gray-300 text-gray-700 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-200 border border-gray-300 text-gray-700 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="e.g. AIML"
                     required
                   />
@@ -60,7 +60,7 @@ const Projects = () => {
                   <input
                     type="text"
                     id="first_name"
-                    className="bg-gray-200 border border-gray-300 text-gray-700 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-200 border border-gray-300 text-gray-700 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Expertise"
                     required
                   />
@@ -71,7 +71,7 @@ const Projects = () => {
         </div>
 
         <div>
-          <h2 className="text-xl font-bold dark:text-white left-9 ml-5">
+          <h2 className="text-xl font-bold  left-9 ml-5">
             Project Description
           </h2>
           <p className="font-medium text-sm pt-5 text-justify ml-8 mr-10">
@@ -108,7 +108,7 @@ const Projects = () => {
         </div>
         <br />
         <div>
-          <h2 className="text-xl font-bold dark:text-white left-9 ml-5">
+          <h2 className="text-xl font-bold  left-9 ml-5">
             Objective (optional):
           </h2>
           <p className="font-medium text-sm pt-5 text-justify ml-8 mr-10">
@@ -147,12 +147,12 @@ const Projects = () => {
           </a>
         </div>
         <div>
-          <h2 className="text-xl font-bold dark:text-white left-9 ml-5 mt-6">
+          <h2 className="text-xl font-bold  left-9 ml-5 mt-6">
             &quot;What makes you suitable for project ?&quot;
           </h2>
 
-          <form>
-            <div className="ml-8 mr-10 mt-5 mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+          <form className="px-10">
+            <div className="mt-5 mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
               <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
                 <label htmlFor="comment" className="sr-only">
                   Your comment
@@ -160,7 +160,7 @@ const Projects = () => {
                 <textarea
                   id="comment"
                   rows="4"
-                  className="ml-8 w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+                  className="focus:outline-none text-white w-full px-0 text-sm  bg-white border-0 dark:bg-gray-800 focus:ring-0  dark:placeholder-gray-400"
                   placeholder="Write a comment..."
                   required
                 ></textarea>
@@ -177,7 +177,7 @@ const Projects = () => {
           </form>
         </div>
         <div>
-          <p className="text-xl font-semibold leading-6 text-gray-900 ml-8 mr-10">
+          <p className="text-xl font-semibold leading-6  ml-8 mr-10">
             Created By:
           </p>
           <br />
@@ -296,7 +296,7 @@ const Projects = () => {
 
               <label
                 htmlFor="message"
-                className="text-lg font-semibold leading-6 text-gray-900 absolute-right-0 block mb-2  dark:text-white"
+                className="text-lg font-semibold leading-6 text-gray-900 absolute-right-0 block mb-2  "
               >
                 Give Feedback:
               </label>

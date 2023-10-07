@@ -59,7 +59,7 @@ const HeroSection = () => {
             return (
               <div
                 key={index}
-                className="md:w-[20vw] border border-black rounded-lg p-5 bg-[#B7EFFB] shadow-xl"
+                className="md:w-[20vw] border border-black rounded-lg p-5 bg-white shadow-xl"
               >
                 <h3 className=" text-lg md:text-xl font-semibold">
                   {data.title}
