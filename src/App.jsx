@@ -11,7 +11,6 @@ import Listing from "./pages/Listing";
 import Profile from "./pages/Profile";
 import Projects from "./pages/Project/Projects";
 import Views from "./pages/Dashboard/View";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
 import AdminPage from "./pages/AdminPage";
 import About_us from "./pages/Aboutus/About_us";
 function App() {
@@ -28,7 +27,6 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/create-feed" element={<Views />} />
-        <Route path="/profile-card" element={<ProfileCard />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/aboutus" element={<About_us />}/>
         </Routes>

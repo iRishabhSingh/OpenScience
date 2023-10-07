@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
+import { Sidenav, initTE } from "tw-elements";
 
-const UserProfile = () => {
+const UserDrawer = () => {
   const [userData, setUserData] = useState({
     profileCompletion: 100,
     name: "Lavesh Bhardwaj",
@@ -10,43 +11,15 @@ const UserProfile = () => {
     ranking: 120,
     projectCount: 8,
   });
-  const [showProfile, setShowProfile] = useState(false);
-  const profileRef = useRef(null);
-
-  useEffect(() => {
-    // Fetch user data
-    fetch("")
-      .then((response) => response.json())
-      .then((data) => setUserData(data))
-      .catch((err) => console.error("Error fetching user data:", err));
-
-    // Add event listener for clicks
-    document.addEventListener("mousedown", handleClickOutside);
-
-    // Cleanup event listener
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const handleClickOutside = (event) => {
-    if (profileRef.current && !profileRef.current.contains(event.target)) {
-      setShowProfile(false);
-    }
-  };
-
   return (
-    <>
-    <div className="relative" ref={profileRef}>
-      <img
-        src={userData.profileImage}
-        alt="profile"
-        className="w-12 h-12 rounded-full cursor-pointer"
-        onClick={() => setShowProfile(!showProfile)}
-      />
-
-      {showProfile && (
-        <div className="fixed top-0 right-0 h-full bg-white p-6 shadow-lg w-96 transform transition-transform duration-500 ease-in-out">
+    <div className="drawer-side">
+      <label
+        htmlFor="my-drawer-4"
+        aria-label="close sidebar"
+        className="drawer-overlay"
+      ></label>
+      <ul className="menu p-4 w-2/3 md:w-1/4 min-h-full bg-white text-black z-50">
+        <div className="h-fullbg-white transform transition-transform duration-500 ease-in-out">
           <div className="flex justify-between items-center mb-4">
             <h1 className="text-lg font-semibold">Profile</h1>
             <button
@@ -61,7 +34,7 @@ const UserProfile = () => {
             src={userData.profileImage}
             alt="profile"
             className="w-24 h-24 rounded-full mx-auto"
-            />
+          />
           <div className="text-center mt-4">
             <p className="font-semibold">{userData.name}</p>
             <p className="text-sm text-gray-500 mb-4">{userData.email}</p>
@@ -69,7 +42,7 @@ const UserProfile = () => {
               <a
                 href="/rating"
                 className="hover:text-blue-500 transition duration-300 ease-in-out"
-                >
+              >
                 <span role="img" aria-label="star">
                   ⭐️
                 </span>{" "}
@@ -78,7 +51,7 @@ const UserProfile = () => {
               <a
                 href="/ranking"
                 className="hover:text-blue-500 transition duration-300 ease-in-out"
-                >
+              >
                 <span role="img" aria-label="graph">
                   📊
                 </span>{" "}
@@ -97,10 +70,10 @@ const UserProfile = () => {
             <button
               className={`w-full p-2 rounded mt-4 transition duration-300 ease-in-out ${
                 userData.profileCompletion === 100
-                ? "bg-blue-500 text-white hover:bg-blue-700"
-                : "bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                  ? "bg-blue-500 text-white hover:bg-blue-700"
+                  : "bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
               }`}
-              >
+            >
               {userData.profileCompletion === 100
                 ? "Edit Profile"
                 : "Complete Profile"}
@@ -117,8 +90,8 @@ const UserProfile = () => {
               "Settings",
             ].map((option) => (
               <li
-              key={option}
-              className="py-2 px-4 hover:bg-gray-200 rounded cursor-pointer"
+                key={option}
+                className="py-2 px-4 hover:bg-gray-200 rounded cursor-pointer"
               >
                 {option}
               </li>
@@ -129,10 +102,9 @@ const UserProfile = () => {
             Logout
           </button>
         </div>
-      )}
+      </ul>
     </div>
-      </>
   );
 };
 
-export default UserProfile;
+export default UserDrawer;
