@@ -18,6 +18,7 @@ export default {
       },
     },
   },
+  mode: "jit",
   plugins: [
     require("tw-elements/dist/plugin.cjs"),
     require("daisyui"),

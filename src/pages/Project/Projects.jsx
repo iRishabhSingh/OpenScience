@@ -1,8 +1,33 @@
 import ChatButton from "./ChatButton";
 import { Select, SelectItem } from "@nextui-org/react";
-import { Input } from "@nextui-org/react";
+import { Input, User, Textarea } from "@nextui-org/react";
+
+import { Card, CardFooter, Image, Button } from "@nextui-org/react";
 
 const Projects = () => {
+  const CardBox = (img, text) => {
+    <Card isFooterBlurred radius="lg" className="border-none">
+      <Image
+        alt=""
+        className="object-cover"
+        height={200}
+        src={img}
+        width={200}
+      />
+      <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+        <p className="text-tiny text-white/80">{text}</p>
+        <Button
+          className="text-tiny text-white bg-black/20"
+          variant="flat"
+          color="default"
+          radius="lg"
+          size="sm"
+        >
+          Notify me
+        </Button>
+      </CardFooter>
+    </Card>;
+  };
   return (
     <>
       <ChatButton />
@@ -54,11 +79,9 @@ const Projects = () => {
             </div>
           </div>
 
-          <div>
-            <h2 className="text-xl font-bold  left-9 ml-5">
-              Project Description
-            </h2>
-            <p className="font-medium text-sm pt-5 text-justify ml-8 mr-10">
+          <div className="flex flex-col p-20 mt-[2rem]">
+            <p className="text-4xl mb-3 font-bold">Project Description</p>
+            <p className="text-lg mt-3 lg:mr-4 font-light text-justify">
               The &quot;Global Climate Observations Initiative (GCOI)&quot; is a
               pioneering open science project dedicated to monitoring,
               understanding, and mitigating the impact of climate change on a
@@ -68,8 +91,7 @@ const Projects = () => {
               address one of the most pressing challenges of our time: climate
               change.
             </p>
-            <p className="font-medium text-sm pt-5 text-justify ml-8 mr-10">
-              {" "}
+            <p className="text-lg mt-3 lg:mr-4 font-light text-justify">
               1. Comprehensive Climate Data Collection: GCOI aims to collect,
               curate, and openly share a vast array of climate data, including
               temperature readings, sea-level measurements, greenhouse gas
@@ -90,12 +112,9 @@ const Projects = () => {
               awareness and empower informed decision making.
             </p>
           </div>
-          <br />
-          <div>
-            <h2 className="text-xl font-bold  left-9 ml-5">
-              Objective (optional):
-            </h2>
-            <p className="font-medium text-sm pt-5 text-justify ml-8 mr-10">
+          <div className="flex flex-col p-20 mt-[2rem]">
+            <p className="text-4xl mb-3 font-bold">Objective (Optional)</p>
+            <p className="text-lg mt-3 lg:mr-4 font-light text-justify">
               The GCOI project has already made a significant impact on the
               global understanding of climate change. Its comprehensive data
               collection and analysis have contributed to more accurate climate
@@ -104,15 +123,9 @@ const Projects = () => {
               continues to drive innovation and inspire action on a global
               scale.
             </p>
-          </div>
-          <br />
-          <div>
-            <a
-              href="#_"
-              className="ml-8 relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50"
-            >
-              <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-              <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+            <div className="w-15 my-5">
+              <Button variant="shadow" color="primary">
+                Looking For Collaborator
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -127,64 +140,45 @@ const Projects = () => {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   ></path>
                 </svg>
-              </span>
-              <span className="relative ml-8">Looking For Collaborator</span>
-            </a>
+              </Button>
+            </div>
           </div>
-          <div>
-            <h2 className="text-xl font-bold  left-9 ml-5 mt-6">
-              &quot;What makes you suitable for project ?&quot;
+          <div className="flex flex-col p-20 mt-[2rem]">
+            <h2 className="text-xl font-bold left-9 mr-5 mt-6">
+              &quot;What makes you suitable for project?&quot;
             </h2>
-
-            <form className="px-10">
-              <div className="mt-5 mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-                <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
+            <form className="pr-10">
+              <div className="mt-5 mb-4 border border-gray-200 rounded-lg bg-gray-50">
+                <div className="px-4 py-2 bg-white rounded-t-lg">
                   <label htmlFor="comment" className="sr-only">
                     Your comment
                   </label>
                   <textarea
                     id="comment"
                     rows="4"
-                    className="focus:outline-none text-white w-full px-0 text-sm  bg-white border-0 dark:bg-gray-800 focus:ring-0  dark:placeholder-gray-400"
+                    className="focus:outline-none w-full px-0 text-sm  bg-white border-0 focus:ring-0  dark:placeholder-gray-400"
                     placeholder="Write a comment..."
                     required
                   ></textarea>
                 </div>
-                <div className="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600">
-                  <button
-                    type="submit"
-                    className="ml-8 inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
-                  >
-                    Apply
-                  </button>
+                <div className="flex items-center justify-between px-3 py-2 border-t">
+                  <Button color="primary">Apply</Button>
                 </div>
               </div>
             </form>
           </div>
-          <div>
-            <p className="text-xl font-semibold leading-6  ml-8 mr-10">
-              Created By:
-            </p>
-            <br />
-            <div className="grid grid-cols-2 divide-x">
-              <div className="mr-10">
-                <div className="flex min-w-0 gap-x-4 mr-8 ">
-                  <img
-                    className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                  <div className="min-w-0 flex-auto">
-                    <p className="text-lg font-semibold leading-6 text-gray-900">
-                      Name
-                    </p>
-                    <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                      Skills
-                    </p>
-                  </div>
-                </div>
-                <br />
-                <div className="flex min-w-0 gap-x-4 ">
+          <div className="flex flex-col p-20 mt-[2rem]">
+            <h2 className="text-xl font-bold left-9 mr-5 mt-6">Created By</h2>
+            <div className="mt-10 divide-x">
+              <User
+                name="Jane Doe"
+                description="Product Designer"
+                avatarProps={{
+                  src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+                }}
+                className="mt-4"
+              />
+              {/* <div className="flex min-w-0 gap-x-4 ">
                   <svg
                     className="h-8 w-8 text-black"
                     fill="none"
@@ -202,7 +196,6 @@ const Projects = () => {
                     Projects
                   </p>
                 </div>
-                <br />
                 <div className="flex min-w-0 gap-x-4 ">
                   <svg
                     className="h-8 w-8 text-black"
@@ -220,155 +213,115 @@ const Projects = () => {
                   <p className="text-lg font-semibold leading-6 text-gray-900">
                     Collaborations
                   </p>
-                </div>
+                </div> */}
+              <div className="flex items-center space-x-1 mt-4">
+                <p className="text-lg font-semibold leading-6 text-gray-900">
+                  Give Rating:
+                </p>
               </div>
-
-              <div>
-                <div className="flex items-center space-x-1">
-                  <p className="text-lg font-semibold leading-6 text-gray-900">
-                    Give Rating :{" "}
-                  </p>
-                  <svg
-                    className="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    className="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    className="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    className="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    className="w-4 h-4 text-gray-300 dark:text-gray-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
+              <form className="bg-white rounded-lg border p-2 mt-4 w-auto">
+                <Textarea
+                  variant="faded"
+                  label="Feedback"
+                  labelPlacement="outside"
+                  placeholder="Enter your description"
+                  className="col-span-12 md:col-span-6 mb-6 md:mb-0 max-w-[400px]"
+                />
+                <div className="flex justify-start">
+                  <Button color="primary">Submit</Button>
                 </div>
-                <br />
-                {
-                  //Feedback
-                }
-
-                <label
-                  htmlFor="message"
-                  className="text-lg font-semibold leading-6 text-gray-900 absolute-right-0 block mb-2  "
-                >
-                  Give Feedback:
-                </label>
-                <form className="max-w-2xl bg-white rounded-lg border p-2 mx-auto ">
-                  <div className="px-3 mb-2 mt-2">
-                    <textarea
-                      placeholder="Your Feedback........."
-                      className="w-full bg-gray-100 rounded border border-gray-400 leading-normal resize-none h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
-                    ></textarea>
-                  </div>
-                  <div className="flex justify-end px-4">
-                    <input
-                      type="submit"
-                      className="px-2.5 py-1.5 rounded-md text-white text-sm bg-indigo-500"
-                      value="Submit"
-                    />
-                  </div>
-                </form>
-              </div>
+              </form>
             </div>
           </div>
           {
             //suggested Projects;
           }
-          <div className="flex mt-4">
-            <div className=" ml-8 block max-w-[18rem] rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-              <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                <img
-                  className="rounded-t-lg"
-                  src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-base text-neutral-600 dark:text-neutral-200">
-                  Hello hey there!!!!!!!!!!
-                </p>
-              </div>
-            </div>
-            <div className=" ml-8 block max-w-[18rem] rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-              <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                <img
-                  className="rounded-t-lg"
-                  src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-base text-neutral-600 dark:text-neutral-200">
-                  Hello hey there!!!!!!!!!!
-                </p>
-              </div>
-            </div>
-            <div></div>
-            <div className=" ml-8 block max-w-[18rem] rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-              <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                <img
-                  className="rounded-t-lg"
-                  src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-base text-neutral-600 dark:text-neutral-200">
-                  Hello hey there!!!!!!!!!!
-                </p>
-              </div>
-            </div>
-            <div className=" ml-8 block max-w-[18rem] rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-              <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                <img
-                  className="rounded-t-lg"
-                  src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-base text-neutral-600 dark:text-neutral-200">
-                  Hello hey there!!!!!!!!!!
-                </p>
-              </div>
-            </div>
+          <div className="flex border justify-around mt-4">
+            <Card isFooterBlurred radius="lg" className="border-none">
+              <Image
+                alt="Woman listing to music"
+                className="object-cover"
+                height={200}
+                src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+                width={200}
+              />
+              <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                <p className="text-tiny text-white/80">Available soon.</p>
+                <Button
+                  className="text-tiny text-white bg-black/20"
+                  variant="flat"
+                  color="default"
+                  radius="lg"
+                  size="sm"
+                >
+                  Notify me
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card isFooterBlurred radius="lg" className="border-none">
+              <Image
+                alt="Woman listing to music"
+                className="object-cover"
+                height={200}
+                src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+                width={200}
+              />
+              <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                <p className="text-tiny text-white/80">Available soon.</p>
+                <Button
+                  className="text-tiny text-white bg-black/20"
+                  variant="flat"
+                  color="default"
+                  radius="lg"
+                  size="sm"
+                >
+                  Notify me
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card isFooterBlurred radius="lg" className="border-none">
+              <Image
+                alt="Woman listing to music"
+                className="object-cover"
+                height={200}
+                src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+                width={200}
+              />
+              <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                <p className="text-tiny text-white/80">Available soon.</p>
+                <Button
+                  className="text-tiny text-white bg-black/20"
+                  variant="flat"
+                  color="default"
+                  radius="lg"
+                  size="sm"
+                >
+                  Notify me
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card isFooterBlurred radius="lg" className="border-none">
+              <Image
+                alt="Woman listing to music"
+                className="object-cover"
+                height={200}
+                src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+                width={200}
+              />
+              <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                <p className="text-tiny text-white/80">Available soon.</p>
+                <Button
+                  className="text-tiny text-white bg-black/20"
+                  variant="flat"
+                  color="default"
+                  radius="lg"
+                  size="sm"
+                >
+                  Notify me
+                </Button>
+              </CardFooter>
+            </Card>
           </div>
-
-          <>
-            <br />
-          </>
         </div>
       </div>
     </>

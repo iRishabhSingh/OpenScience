@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
       <header className="z-0">
-        <div className="container mx-auto justify-around flex p-5 flex-col md:flex-row items-center">
+        <div className="container mx-auto justify-between flex p-5 flex-col md:flex-row items-center">
           <NavLink
             to="/"
             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 w-1/4"
