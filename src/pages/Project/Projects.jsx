@@ -1,8 +1,17 @@
 import ChatButton from "./ChatButton";
 import { Select, SelectItem } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
-
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useAuth } from "../../context/auth";
 const Projects = () => {
+  const navigate = useNavigate();
+  const [auth,setAuth] = useAuth();
+  useEffect(() => {
+    if (!auth?.token) {
+      navigate("/register")
+    }
+  }, []);
   return (
     <>
       <ChatButton />

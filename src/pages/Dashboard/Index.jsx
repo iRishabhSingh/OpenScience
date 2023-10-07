@@ -6,9 +6,17 @@ import ProjectSection from "./ProjectSection";
 import TopCollaborators from "./TopCollaborators";
 import CollaboratorSection from "./CollaboratorSection";
 import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth";
 const Dashboard = () => {
   const [collaborator, setCollaborator] = useState(true);
+  const navigate = useNavigate();
+  const [auth,setAuth] = useAuth();
+  useEffect(() => {
+    if (!auth?.token) {
+      navigate("/register")
+    }
+  }, []);
   return (
     <div className="">
       <div className="">
