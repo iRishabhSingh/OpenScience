@@ -1,4 +1,3 @@
-import React from "react";
 import pic4 from "../../assets/4.jpg";
 import { NavLink } from "react-router-dom";
 const Projects = () => {
@@ -20,7 +19,7 @@ const Projects = () => {
         <h1 className="flex text-3xl">Explore Open Science projects...</h1>
         <div className="flex w-full h-88 ">
           <div className="flex flex-col w-1/2 ">
-            {buttonLabels.slice(0,5).map((label, index) => (
+            {buttonLabels.slice(0, 5).map((label, index) => (
               <button
                 key={index}
                 className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center"
@@ -35,7 +34,7 @@ const Projects = () => {
             ))}
           </div>
           <div className="flex flex-col w-1/2 ">
-            {buttonLabels.slice(5,10).map((label, index) => (
+            {buttonLabels.slice(5, 10).map((label, index) => (
               <button
                 key={index}
                 className="flex w-72 p-3 rounded-md h-12 bg-[#B7EFFB] mt-3 border-2 border-black items-center"

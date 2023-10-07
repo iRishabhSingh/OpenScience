@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Input, initTE } from "tw-elements";
 import ProfileImageSection from "./ProfileImageSection";
 const Profile = () => {
@@ -92,9 +92,11 @@ const Profile = () => {
                   type="text"
                 />
               </>
-              <label className="text-start md:text-end text-xl font-semibold pt-10 col-span-2 md:col-span-1 -mb-8 md:-mb-4">Address :</label>
-              <div className="col-span-3"/>
-              <hr className="col-span-4"/>
+              <label className="text-start md:text-end text-xl font-semibold pt-10 col-span-2 md:col-span-1 -mb-8 md:-mb-4">
+                Address :
+              </label>
+              <div className="col-span-3" />
+              <hr className="col-span-4" />
               <>
                 <label className="col-span-1 text-end">City</label>
                 <input

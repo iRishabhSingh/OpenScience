@@ -1,4 +1,3 @@
-import React from "react";
 import ProjectCard from "./ProjectCard";
 import l1 from "../../assets/l1.png";
 import l2 from "../../assets/l2.png";

@@ -1,5 +1,3 @@
-import React from "react";
-
 const TopCollaborators = () => {
   return (
     <div className="p-10">
@@ -7,7 +5,10 @@ const TopCollaborators = () => {
       <div className="flex flex-wrap gap-8 p-10">
         {[1, 2, 3, 4, 5, 6, 7].map((val, index) => {
           return (
-            <div key={index} className="flex flex-col justify-center items-center">
+            <div
+              key={index}
+              className="flex flex-col justify-center items-center"
+            >
               <img
                 src="https://picsum.photos/536/354"
                 className="h-56 w-56 rounded-full"

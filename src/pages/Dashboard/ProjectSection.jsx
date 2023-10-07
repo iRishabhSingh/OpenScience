@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Tab, initTE } from "tw-elements";
 import ProjectCard from "./ProjectCard";
 const ProjectSection = () => {
@@ -107,14 +107,14 @@ const ProjectSection = () => {
   return (
     <div className="px-10">
       <ul
-        class="mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0"
+        className="mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0"
         role="tablist"
         data-te-nav-ref
       >
         <li role="presentation">
           <a
             href="#tabs-home"
-            class="my-2 block border-2 rounded border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-black data-[te-nav-active]:bg-[#B7EFFB] hover:opacity-75 focus:isolate focus:border-transparent data-[te-nav-active]:border-black data-[te-nav-active]:text-black dark:text-neutral-400 dark:data-[te-nav-active]:border-black-400 dark:data-[te-nav-active]:text-black-400"
+            className="my-2 block border-2 rounded border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-black data-[te-nav-active]:bg-[#B7EFFB] hover:opacity-75 focus:isolate focus:border-transparent data-[te-nav-active]:border-black data-[te-nav-active]:text-black dark:text-neutral-400 dark:data-[te-nav-active]:border-black-400 dark:data-[te-nav-active]:text-black-400"
             data-te-toggle="pill"
             data-te-target="#tabs-home"
             data-te-nav-active
@@ -128,7 +128,7 @@ const ProjectSection = () => {
         <li role="presentation">
           <a
             href="#tabs-profile"
-            class="my-2 block border-2 rounded border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-black data-[te-nav-active]:bg-[#B7EFFB] hover:opacity-75 focus:isolate focus:border-transparent data-[te-nav-active]:border-black data-[te-nav-active]:text-black dark:text-neutral-400 dark:data-[te-nav-active]:border-black-400 dark:data-[te-nav-active]:text-black-400"
+            className="my-2 block border-2 rounded border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-black data-[te-nav-active]:bg-[#B7EFFB] hover:opacity-75 focus:isolate focus:border-transparent data-[te-nav-active]:border-black data-[te-nav-active]:text-black dark:text-neutral-400 dark:data-[te-nav-active]:border-black-400 dark:data-[te-nav-active]:text-black-400"
             data-te-toggle="pill"
             data-te-target="#tabs-profile"
             role="tab"
@@ -141,7 +141,7 @@ const ProjectSection = () => {
         <li role="presentation">
           <a
             href="#tabs-messages"
-            class="my-2 block border-2 rounded border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-black data-[te-nav-active]:bg-[#B7EFFB] hover:opacity-75 focus:isolate focus:border-transparent data-[te-nav-active]:border-black data-[te-nav-active]:text-black dark:text-neutral-400 dark:data-[te-nav-active]:border-black-400 dark:data-[te-nav-active]:text-black-400"
+            className="my-2 block border-2 rounded border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-black data-[te-nav-active]:bg-[#B7EFFB] hover:opacity-75 focus:isolate focus:border-transparent data-[te-nav-active]:border-black data-[te-nav-active]:text-black dark:text-neutral-400 dark:data-[te-nav-active]:border-black-400 dark:data-[te-nav-active]:text-black-400"
             data-te-toggle="pill"
             data-te-target="#tabs-messages"
             role="tab"
@@ -152,9 +152,9 @@ const ProjectSection = () => {
           </a>
         </li>
       </ul>
-      <div class="mb-6">
+      <div className="mb-6">
         <div
-          class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+          className="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
           id="tabs-home"
           role="tabpanel"
           aria-labelledby="tabs-home-tab"
@@ -174,7 +174,7 @@ const ProjectSection = () => {
           </div>
         </div>
         <div
-          class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+          className="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
           id="tabs-profile"
           role="tabpanel"
           aria-labelledby="tabs-profile-tab"
@@ -182,7 +182,7 @@ const ProjectSection = () => {
           Tab 2 content
         </div>
         <div
-          class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+          className="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
           id="tabs-messages"
           role="tabpanel"
           aria-labelledby="tabs-profile-tab"

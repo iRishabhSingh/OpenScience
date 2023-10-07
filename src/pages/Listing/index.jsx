@@ -1,4 +1,3 @@
-import React from "react";
 import Titlebar from "./Titlebar";
 import ProjectDetails from "./ProjectDetails";
 

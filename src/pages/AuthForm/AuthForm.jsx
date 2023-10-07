@@ -1,152 +1,9 @@
-import {React, useState } from "react";
 import "./AuthForm.css";
-import axios from "axios"
-import { NavLink, useNavigate } from "react-router-dom";
+import Login from "./Login";
+import Signup from "./Signup";
+
 const AuthForm = () => {
-  const [user,setUser] = useState({
-    name:"",
-    email:"",
-    password:"",
-    confirmpassword:""
-  })
-  const navigate = useNavigate();
-  const handleChange = (e) => {
-    const {name,value} = e.target
-    setUser({
-      ...user,
-      [name] : value
-    })
-  }
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    axios.post("http://localhost:8989/api/v1/auth/login",user)
-    .then((res)=>{
-      alert(res.data.message);
-    })
-    .catch((error)=>{
-      alert("Error in Login!")
-      console.log(error);
-    })
-  };
-
-  const handleSignup = async() => {
-    e.preventDefault();
-    // Handle signup logic here
-    axios.post("http://localhost:8989/api/v1/auth/register",user)
-    .then((res)=>{
-      alert(res.data.message);
-    })
-    .catch((error)=>{
-      alert("Error in Registration!")
-      console.log(error)
-    })
-  };
-
-  const Login = () => (
-    <div className="card-front">
-      <div className="center-wrap">
-        <div className="section text-center">
-          <h4 className="mb-4 pb-3">Log In</h4>
-            <div className="form-group">
-              <input
-                type="email"
-                className="form-style"
-                placeholder="Email"
-                name = "email"
-                value={user.email}
-                onChange={handleChange}
-              />
-              <i className="input-icon uil uil-at"></i>
-            </div>
-            <div className="form-group mt-2">
-              <input
-                type="password"
-                className="form-style"
-                placeholder="Password"
-                name = "password"
-                value = {user.password}
-                onChange={handleChange}
-              />
-              <i className="input-icon uil uil-lock-alt"></i>
-            </div>
-            <button type="submit" className="btn mt-4" onClick={handleLogin}>
-              Login
-            </button>
-          <p className="mb-0 mt-4 text-center">
-            <NavLink to="/reset-password" className="link">
-              Forgot your password?
-            </NavLink>
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-
-  const Signup = () => (
-    <div className="card-back">
-      <div className="center-wrap">
-        <div className="section text-center">
-          <h4 className="mb-3 pb-3">Sign Up</h4>
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-style"
-                placeholder="Full Name"
-                aria-label="Full Name"
-                name = "name"
-                value = {user.name}
-                onChange = {handleChange}
-              />
-              <i className="input-icon uil uil-user"></i>
-            </div>
-            <div className="form-group mt-2 flex gap-2 items-center">
-              <input
-                type="email"
-                className="form-style"
-                placeholder="Email"
-                aria-label="Email"
-                name = "email"
-                value={user.email}
-                onChange={handleChange}
-
-              />
-              <i className="input-icon uil uil-at"></i>
-            </div>
-            <div className="form-group mt-2">
-              <input
-                type="password"
-                className="form-style"
-                placeholder="Password"
-                aria-label="Password"
-                name = "password"
-                value={user.password}
-                onChange={handleChange}
-              />
-              <i className="input-icon uil uil-lock-alt"></i>
-            </div>
-            <div className="form-group mt-2">
-              <input
-                type="password"
-                className="form-style"
-                placeholder="Confirm Password"
-                aria-label="Confirm Password"
-                name = "confirmpassword"
-                value={user.confirmpassword}
-                onChange={handleChange}
-              />
-              <i className="input-icon uil uil-lock-alt"></i>
-            </div>
-            <button type="submit" className="btn mt-4" onClick={handleSignup}>
-              Register
-            </button>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
-    <>
     <div className="section flex justify-center">
       <div className="container">
         <div className="row full-height justify-content-center">
@@ -173,9 +30,7 @@ const AuthForm = () => {
           </div>
         </div>
       </div>
-  
     </div>
-    </>
   );
 };
 

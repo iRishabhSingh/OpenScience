@@ -11,10 +11,10 @@ import Listing from "./pages/Listing";
 import Profile from "./pages/Profile";
 import Projects from "./pages/Project/Projects";
 import Views from "./pages/Dashboard/View";
-import AdminPage from "./pages/Admin/index.jsx";
+import ProfileCard from "./components/ProfileCard/ProfileCard";
 function App() {
   return (
-    <div className="text-black">
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -25,11 +25,11 @@ function App() {
         <Route path="/listing" element={<Listing />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/createfeed" element={<Views />} />
-        <Route path="/admin/vi/api/adminpage" element={<AdminPage />} />
+        <Route path="/create-feed" element={<Views />} />
+        <Route path="/profile-card" element={<ProfileCard />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 
