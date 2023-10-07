@@ -151,12 +151,12 @@ const ProjectSection = () => {
       </div>
       <div className="flex h-fit flex-col py-10">
         <h1 className="text-2xl mt-2">Trusted By</h1>
-        <div className="grid grid-cols-4 gap-5 mt-3 p-3">
+        <div className="flex flex-wrap justify-center gap-[10vh] mt-3 p-3">
           {[l1, l2, l3, l4].map((imageSrc, index) => (
             <img
               key={index}
               src={imageSrc}
-              className="flex w-60 h-32 rounded-md p-2 shadow-lg"
+              className="flex h-20 m-4"
               alt={`Image ${index + 1}`}
             />
           ))}

@@ -9,7 +9,7 @@ import CollaboratorSection from "./CollaboratorSection";
 const Dashboard = () => {
   const [collaborator, setCollaborator] = useState(true);
   return (
-    <div className="bg-gradient-to-b from-[#B7EFFB] to-[#FFF]">
+    <div className="">
       <div className="">
         <HeroSection />
         <div className="flex justify-between px-3 md:px-10 pt-5 py-10">

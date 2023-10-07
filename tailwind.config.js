@@ -1,6 +1,11 @@
+import { nextui } from "@nextui-org/react";
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,js,jsx,tsx}"],
+export default {
+  content: [
+    "./src/**/*.{html,js,jsx,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       height: {
@@ -13,5 +18,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tw-elements/dist/plugin.cjs"), require("daisyui")],
+  plugins: [
+    require("tw-elements/dist/plugin.cjs"),
+    require("daisyui"),
+    nextui(),
+  ],
 };

@@ -1,12 +1,11 @@
-import { React, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Sidenav, initTE } from "tw-elements";
 import UserDrawer from "../ProfileCard/UserDrawer";
 const Navbar = () => {
   initTE({ Sidenav });
   return (
     <>
-      <header className="bg-[#B7EFFB]">
+      <header>
         <div className="container mx-auto justify-around flex p-5 flex-col md:flex-row items-center">
           <NavLink
             to="/"
@@ -74,7 +73,7 @@ const Navbar = () => {
               </div>
               <UserDrawer />
             </div>
-            <button className="inline-flex ml-5 items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+            <button className="btn">
               <NavLink to="/register">Login</NavLink>
               <svg
                 fill="none"

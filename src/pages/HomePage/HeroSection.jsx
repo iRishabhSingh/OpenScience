@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <>
-      <div className="flex items-center h-[80vh] bg-gradient-to-b from-[#B7EFFB] to-white pl-10 pr-10">
+      <div className="flex h-[80vh] items-center pl-10 pr-10">
         <div className="flex-1">
           <div className="flex gap-5 justify-center">
             <motion.img
