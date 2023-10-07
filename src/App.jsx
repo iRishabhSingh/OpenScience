@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import Projects from "./pages/Project/Projects";
 import Views from "./pages/Dashboard/View";
 import AdminPage from "./pages/AdminPage";
+import About_us from "./pages/Aboutus/About_us";
 function App() {
   return (
     <div className="text-black">
@@ -27,7 +28,8 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/create-feed" element={<Views />} />
         <Route path="/admin" element={<AdminPage />} />
-      </Routes>
+        <Route path="/aboutus" element={<About_us />}/>
+        </Routes>
       <Footer />
     </div>
   );
