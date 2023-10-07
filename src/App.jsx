@@ -28,7 +28,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/create-feed" element={<Views />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/aboutus" element={<About_us />} />
+        <Route path="/about-us" element={<About_us />} />
       </Routes>
       <Footer />
     </div>
