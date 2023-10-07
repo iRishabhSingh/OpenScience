@@ -6,7 +6,7 @@ const Profile = () => {
     initTE({ Input });
   }, []);
   return (
-    <div className="p-5 md:p-10 lg:p-20  lg:px-32 bg-gradient-to-b from-[#B7EFFB] to-[#FFF]">
+    <div className="p-5 md:p-10 lg:p-20  lg:px-32">
       <h1 className="text-center text-lg font-medium pb-10">Edit Profile</h1>
       <div className="flex flex-col items-start md:flex-row justify-between gap-5">
         <ProfileImageSection />

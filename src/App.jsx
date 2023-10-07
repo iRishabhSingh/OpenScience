@@ -15,7 +15,7 @@ import AdminPage from "./pages/AdminPage";
 import About_us from "./pages/Aboutus/About_us";
 function App() {
   return (
-    <div className="text-black">
+    <div className="text-black font-[ Source Serif Pro]">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -28,8 +28,8 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/create-feed" element={<Views />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/aboutus" element={<About_us />}/>
-        </Routes>
+        <Route path="/aboutus" element={<About_us />} />
+      </Routes>
       <Footer />
     </div>
   );

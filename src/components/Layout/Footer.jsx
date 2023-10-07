@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     // <!-- Footer container -->
-    <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+    <footer className="bg-[#1E3BA0] text-center text-white lg:text-left">
       <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
         <div className="mr-12 hidden lg:block">
           <span>Get connected with us on social networks:</span>
@@ -218,7 +218,7 @@ const Footer = () => {
           className="font-semibold text-neutral-600 dark:text-neutral-400"
           href="https://tailwind-elements.com/"
         >
-          Tailwind Elements
+          Team AstroBytes
         </a>
       </div>
     </footer>
