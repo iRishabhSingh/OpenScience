@@ -155,9 +155,9 @@ const ChatButton = () => {
           </ul>
         </div>
       </div>
-      <div className="w-full flex justify-center">
-        <div id="jitsi-container" className="w-full"></div>
-      </div>
+        <div className="w-full flex justify-center">
+          <div id="jitsi-container"></div>
+        </div>
     </>
   );
 };

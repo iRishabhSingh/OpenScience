@@ -1,7 +1,7 @@
 import React from "react";
 const MessageBox = ({ content, position, time, type }) => {
   return (
-    <div className={`chat chat-${position}`}>
+    <div className={`chat ${position === "end" ? "chat-end" : "chat-start"}`}>
       <div
         className={`chat-bubble w-1/3 flex flex-col ${
           position === "end"
