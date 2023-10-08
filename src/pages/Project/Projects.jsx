@@ -1,20 +1,41 @@
 import ChatButton from "./ChatButton";
-import { Select, SelectItem } from "@nextui-org/react";
-import { Input, User, Textarea } from "@nextui-org/react";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { User, Textarea } from "@nextui-org/react";
+import { useNavigate  } from "react-router-dom";
+import { useEffect ,useState} from "react";
 import { useAuth } from "../../context/auth";
 import { Card, CardFooter, Image, Button } from "@nextui-org/react";
-
+import { useParams } from "react-router-dom";
+import axios from "axios"
 const Projects = () => {
   const navigate = useNavigate();
+  const { projectId } = useParams();
   const [auth,setAuth] = useAuth();
+  const [project, setProject] = useState({
+    domain:"",
+    skills:"",
+    expertise:"",
+    description:"",
+    objectives:""
+  });
   useEffect(() => {
     if (!auth?.token) {
       navigate("/register")
     }
   }, []);
   
+  useEffect(() => {
+    const fetchProjectDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8989/api/v1/project/${projectId}`);
+        setProject(response.data); 
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchProjectDetails();
+  }, []);
+
+
   const CardBox = (img, text) => {
     <Card isFooterBlurred radius="lg" className="border-none">
       <Image
@@ -40,7 +61,7 @@ const Projects = () => {
   };
   return (
     <>
-      <ChatButton />
+      
       <div className="overflow-auto">
         <div className=" flex flex-col pl-5 pr-5">
           <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
@@ -56,84 +77,32 @@ const Projects = () => {
               </div>
               <div className="flex w-1/3 flex-wrap absolute-right-0">
                 <div className="flex flex-col gap-4">
-                  <h1 className="text-2xl font-bold left-9 ml-5">
-                    &quot;Global Climate Observations Initiative (GCOI)&quot;
-                  </h1>
                   <div className="flex w-2/3">
-                    <Select label="Domain" className="max-w-xs">
-                      <SelectItem key="ML" value="Machine learning">
-                        Machine learning
-                      </SelectItem>
-                      <SelectItem key="ML" value="Machine learning">
-                        HTML
-                      </SelectItem>
-                      <SelectItem key="ML" value="Machine learning">
-                        MERN
-                      </SelectItem>
-                      <SelectItem key="ML" value="Machine learning">
-                        SCALA
-                      </SelectItem>
-                      <SelectItem key="ML" value="Machine learning">
-                        FRONTEND
-                      </SelectItem>
-                    </Select>
+                    <span>DOMAIN : {project.domain}</span>
                   </div>
                   <div className="flex w-2/3">
-                    <Input type="text" label="Skill" />
+                    <span>SKILLS : {project.skills}</span>
                   </div>
                   <div className="flex w-2/3">
-                    <Input type="text" label="Expertise" />
+                  <span>EXPERTISE : {project.expertise}</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col p-20 mt-[2rem]">
+          <div className="flex flex-col p-20 mt-2">
             <p className="text-4xl mb-3 font-bold">Project Description</p>
             <p className="text-lg mt-3 lg:mr-4 font-light text-justify">
-              The &quot;Global Climate Observations Initiative (GCOI)&quot; is a
-              pioneering open science project dedicated to monitoring,
-              understanding, and mitigating the impact of climate change on a
-              global scale. With a community of scientists, researchers, and
-              concerned citizens from around the world, GCOI exemplifies the
-              principles of open science, collaboration, and data sharing to
-              address one of the most pressing challenges of our time: climate
-              change.
+              {project.description}
             </p>
+            <p className="text-4xl mb-3 font-bold mt-3 ">Project Objectives</p>
             <p className="text-lg mt-3 lg:mr-4 font-light text-justify">
-              1. Comprehensive Climate Data Collection: GCOI aims to collect,
-              curate, and openly share a vast array of climate data, including
-              temperature readings, sea-level measurements, greenhouse gas
-              concentrations, and extreme weather event records.
-              <br />
-              2. Advanced Climate Modeling: The project employs state-of-the-art
-              climate models, powered by artificial intelligence and machine
-              learning, to predict future climate trends and assess their impact
-              on ecosystems and human societies.
-              <br />
-              3. Collaborative Research: GCOI serves as a global hub for
-              interdisciplinary collaboration, bringing together climatologists,
-              meteorologists, oceanographers, environmentalists, and
-              policymakers to exchange ideas and findings. <br />
-              4. Public Engagement: The initiative emphasizes the importance of
-              public engagement and education. It provides accessible climate
-              data and tools for individuals, students, and educators to raise
-              awareness and empower informed decision making.
+              {project.objectives.split("-")}
             </p>
           </div>
-          <div className="flex flex-col p-20 mt-[2rem]">
-            <p className="text-4xl mb-3 font-bold">Objective (Optional)</p>
-            <p className="text-lg mt-3 lg:mr-4 font-light text-justify">
-              The GCOI project has already made a significant impact on the
-              global understanding of climate change. Its comprehensive data
-              collection and analysis have contributed to more accurate climate
-              models, informed policy decisions, and a growing public awareness
-              of the urgent need to address climate-related challenges. GCOI
-              continues to drive innovation and inspire action on a global
-              scale.
-            </p>
-            <div className="w-15 my-5">
+          <div className="flex flex-col p-20 mt-2">
+            <div className="w-15">
               <Button variant="shadow" color="primary">
                 Looking For Collaborator
                 <svg
@@ -153,8 +122,8 @@ const Projects = () => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-col p-20 mt-[2rem]">
-            <h2 className="text-xl font-bold left-9 mr-5 mt-6">
+          <div className="flex flex-col p-20 mt-2">
+            <h2 className="text-xl font-bold left-9 mr-5">
               &quot;What makes you suitable for project?&quot;
             </h2>
             <form className="pr-10">
@@ -173,11 +142,12 @@ const Projects = () => {
                 </div>
                 <div className="flex items-center justify-between px-3 py-2 border-t">
                   <Button color="primary">Apply</Button>
+                  <ChatButton/>
                 </div>
               </div>
             </form>
           </div>
-          <div className="flex flex-col p-20 mt-[2rem]">
+          <div className="flex flex-col p-20 mt-2">
             <h2 className="text-xl font-bold left-9 mr-5 mt-6">Created By</h2>
             <div className="mt-10 divide-x">
               <User
