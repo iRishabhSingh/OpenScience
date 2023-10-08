@@ -44,9 +44,6 @@ const Navbar = () => {
               <NavLink to="/aboutus" className="mr-5 hover:text-gray-900">
                 About
               </NavLink>
-              <NavLink to="/projects" className="mr-5 hover:text-gray-900">
-                Projects
-              </NavLink>
               <NavLink to="/dashboard" className="mr-5 hover:text-gray-900">
                 Dashboard
               </NavLink>
@@ -98,20 +95,6 @@ const Navbar = () => {
                 </label>
               </div>
               <UserDrawer />
-                  <Button color="primary" className="z-0">
-                    <NavLink to="/" onClick={handleLogout}>Logout</NavLink>
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 ml-1"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </Button>
                   </div>
                 </>
               )}
