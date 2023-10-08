@@ -1,79 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const FeedSection = () => {
-  const tweets = [
-    {
-      name: "Lavesh Bharadwaj",
-      date: "26 sep , 2023",
-      image: "https://picsum.photos/536/354",
-      content:
-        "I found out the we are going to loose the hackathon , I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,",
-    },
-    {
-      name: "Lavesh Bharadwaj",
-      date: "26 sep , 2023",
-      image: "https://picsum.photos/536/354",
-      content:
-        "I found out the we are going to loose the hackathon , I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,",
-    },
-    {
-      name: "Lavesh Bharadwaj",
-      date: "26 sep , 2023",
-      image: "https://picsum.photos/536/354",
-      content:
-        "I found out the we are going to loose the hackathon , I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,",
-    },
-    {
-      name: "Lavesh Bharadwaj",
-      date: "26 sep , 2023",
-      image: "https://picsum.photos/536/354",
-      content:
-        "I found out the we are going to loose the hackathon , I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,",
-    },
-    {
-      name: "Lavesh Bharadwaj",
-      date: "26 sep , 2023",
-      image: "https://picsum.photos/536/354",
-      content:
-        "I found out the we are going to loose the hackathon , I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,",
-    },
-    {
-      name: "Lavesh Bharadwaj",
-      date: "26 sep , 2023",
-      image: "https://picsum.photos/536/354",
-      content:
-        "I found out the we are going to loose the hackathon , I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,",
-    },
-    {
-      name: "Lavesh Bharadwaj",
-      date: "26 sep , 2023",
-      image: "https://picsum.photos/536/354",
-      content:
-        "I found out the we are going to loose the hackathon , I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,",
-    },
-    {
-      name: "Lavesh Bharadwaj",
-      date: "26 sep , 2023",
-      image: "https://picsum.photos/536/354",
-      content:
-        "I found out the we are going to loose the hackathon , I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,I found out the we are going to loose the hackathon ,",
-    },
-  ];
+const Feeds = () => {
+  const [feeds, setFeeds] = useState([]);
+  const fetchData=async ()=>{
+    const res=await fetch("http://localhost:8989/api/v1/project/getfeeds")
+    const data=await res.json()
+    setFeeds(data)
+  }
+  useEffect(()=>{
+    fetchData();
+  },[])
+
   return (
     <div className="flex flex-col gap-5">
-      {tweets.map((tweet, index) => {
+      {feeds.map((feed, index) => {
         return (
           <div
             key={index}
             className="flex items-start gap-4 py-10 px-5 border rounded-lg"
           >
-            <div className="">
-              <img className="h-20 w-32 rounded-full" src={tweet.image} />
-            </div>
+            {/* <div className="">
+              <img className="h-20 w-32 rounded-full" src={feed.image} />
+            </div> */}
             <div className="flex flex-col gap-2">
-              <h2 className="text-2xl font-semibold">{tweet.name}</h2>
-              <p className="break-word text-lg">{tweet.content}</p>
-              <time className="text-xs">{tweet.date}</time>
+              <h2 className="text-2xl font-semibold">{feed.title}</h2>
+              <p className="break-word text-lg">{feed.summary}</p>
+              {/* <time className="text-xs">{feed.date}</time> */}
             </div>
           </div>
         );
@@ -82,4 +35,4 @@ const FeedSection = () => {
   );
 };
 
-export default FeedSection;
+export default Feeds;

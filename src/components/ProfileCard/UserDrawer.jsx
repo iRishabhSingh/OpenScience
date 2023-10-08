@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserDrawer = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     profileCompletion: 100,
     name: "Lavesh Bhardwaj",
@@ -67,6 +69,7 @@ const UserDrawer = () => {
               </a>
             </div>
             <button
+              // onClick={navigate("/profile")}
               className={`w-full p-2 rounded mt-4 transition duration-300 ease-in-out ${
                 userData.profileCompletion === 100
                   ? "bg-blue-500 text-white hover:bg-blue-700"

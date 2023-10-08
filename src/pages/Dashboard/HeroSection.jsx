@@ -1,29 +1,29 @@
 import img1 from "../../assets/dashboard/HeroImg1.png";
 import img2 from "../../assets/dashboard/HeroImg2.png";
 import img3 from "../../assets/dashboard/HeroImg3.png";
+import { useEffect, useState } from "react";
 const HeroSection = () => {
-  const cardData = [
-    {
-      title: "Life Sciences & Biology",
-      projects: 45,
-      feed: "2.1k",
-    },
-    {
-      title: "Environmental Science",
-      projects: 32,
-      feed: "698",
-    },
-    {
-      title: "Medicine & Healthcare",
-      projects: 69,
-      feed: "1.8k",
-    },
-    {
-      title: "Data Science & AI",
-      projects: 154,
-      feed: "3.8k",
-    },
-  ];
+  const [projectsbyDomain, setProjectsByDomain] = useState([]);
+  const fetchprojectsbyDomain = async () => {
+    try {
+      const res = await fetch(
+        "http://localhost:8989/api/v1/project/projects-by-domain"
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setProjectsByDomain(data);
+      } else {
+        console.error(
+          `Failed to fetch projects by domain. Status: ${res.status}`
+        );
+      }
+    } catch (error) {
+      console.error("Error fetching projects by domain:", error);
+    }
+  };
+  useEffect( () => {
+    fetchprojectsbyDomain();
+  },[])
   return (
     <>
       <div className="w-full flex flex-col md:flex-row p-5 md:p-10 lg:p-20">
@@ -55,14 +55,14 @@ const HeroSection = () => {
           Explore Open Science Projects ...
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 pt-10 gap-5 md:gap-0">
-          {cardData.map((data, index) => {
+          {projectsbyDomain.map((data, index) => {
             return (
               <div
                 key={index}
                 className="md:w-[20vw] border border-black rounded-lg p-5 bg-white shadow-xl"
               >
                 <h3 className=" text-lg md:text-xl font-semibold">
-                  {data.title}
+                  {data._id}
                 </h3>
                 <div className="md:px-3 pt-2">
                   <p className="flex gap-1 md:gap-3">
@@ -96,7 +96,7 @@ const HeroSection = () => {
                         </clipPath>
                       </defs>
                     </svg>
-                    {data.projects} Projects
+                    {data.total} Projects
                   </p>
                   <p className="flex gap-1 md:gap-3">
                     <svg

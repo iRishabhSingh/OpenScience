@@ -13,7 +13,6 @@ import l1 from "../../assets/l1.png";
 import l2 from "../../assets/l2.png";
 import l3 from "../../assets/l3.jfif";
 import l4 from "../../assets/l4.png";
-
 import ProjectCard from "./ProjectCard";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
@@ -153,7 +152,7 @@ const ProjectSection = () => {
                   <ProjectCard
                     name={val.title}
                     category={val.domain}
-                    src={val.src}
+                    src={`http://localhost:8989/api/v1/project/projectphoto/${val._id}`}
                   />
                   </NavLink>
                 </SwiperSlide>
