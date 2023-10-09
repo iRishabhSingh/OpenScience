@@ -1,21 +1,10 @@
 import { useState } from "react";
-<<<<<<< HEAD
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 
 const UserDrawer = () => {
   const [auth, setAuth] = useAuth();
-
-  useNavigate();
   const [userData] = useState({
-=======
-import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/auth";
-const UserDrawer = () => {
-  const navigate = useNavigate();
-  const [auth, setAuth] = useAuth();
-  const [userData, setUserData] = useState({
->>>>>>> origin/main
     profileCompletion: 100,
     name: "Lavesh Bhardwaj",
     email: "lavesh@example.com",
@@ -24,27 +13,16 @@ const UserDrawer = () => {
     ranking: 120,
     projectCount: 8,
   });
-<<<<<<< HEAD
 
   const handleLogout = () => {
-=======
-  const handleLogout = () => {
-    window.alert("Logout");
->>>>>>> origin/main
     setAuth({
       ...auth,
       user: null,
       token: "",
     });
-<<<<<<< HEAD
     localStorage.removeItem("auth");
-  };
-
-=======
     localStorage.clear();
-    toast.success("Logout Successfully");
   };
->>>>>>> origin/main
   return (
     <div className="drawer-side z-10">
       <label
