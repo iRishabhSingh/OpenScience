@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import ProjectCard from "./ProjectCard";
 import FeedSection from "./FeedSection";
@@ -106,7 +105,7 @@ const ProjectSection = () => {
     <div className="px-10">
       <div className="">
         <div className="flex w-full gap-5 justify-between flex-col">
-          <Tabs color="primary" aria-label="Options" className="">
+          <Tabs color="primary" aria-label="Options" className="h-15">
             <Tab key="bestmatch" title="Current Projects">
               <Card>
                 <CardBody>
@@ -115,8 +114,8 @@ const ProjectSection = () => {
                       return (
                         <ProjectCard
                           key={index}
-                          name={val.title}
-                          category={val.category}
+                          name={val.category}
+                          category={val.title}
                           src={val.src}
                         />
                       );

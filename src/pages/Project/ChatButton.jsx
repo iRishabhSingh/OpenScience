@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import MessageBox from "./MessageBox";
 
 const ChatButton = () => {
@@ -155,9 +155,9 @@ const ChatButton = () => {
           </ul>
         </div>
       </div>
-        <div className="w-full flex justify-center">
-          <div id="jitsi-container"></div>
-        </div>
+      <div className="w-full flex justify-center">
+        <div id="jitsi-container"></div>
+      </div>
     </>
   );
 };

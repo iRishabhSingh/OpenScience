@@ -1,7 +1,9 @@
-import img1 from "../../assets/dashboard/HeroImg1.png";
-import img2 from "../../assets/dashboard/HeroImg2.png";
-import img3 from "../../assets/dashboard/HeroImg3.png";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import pic1 from "../../assets/1.jpeg";
+import pic2 from "../../assets/2.jpg";
+import pic3 from "../../assets/3.jpeg";
+import { motion } from "framer-motion";
+
 const HeroSection = () => {
   const [projectsbyDomain, setProjectsByDomain] = useState([]);
   const fetchprojectsbyDomain = async () => {
@@ -21,39 +23,51 @@ const HeroSection = () => {
       console.error("Error fetching projects by domain:", error);
     }
   };
-  useEffect( () => {
+  useEffect(() => {
     fetchprojectsbyDomain();
-  },[])
+  }, []);
   return (
-    <>
-      <div className="w-full flex flex-col md:flex-row p-5 md:p-10 lg:p-20">
-        <div className="flex-1">
-          <div className="flex gap-5 justify-center">
-            <img src={img1} className="w-32 h-32 md:w-56 md:h-56" />
-            <img src={img2} className="w-32 h-32 md:w-56 md:h-56" />
+    <div className="w-[80vw] m-auto">
+      <div className="flex my-[7rem] items-center pl-10 pr-10">
+        <div className="flex w-1/2 flex-col gap-5 justify-center items-center">
+          <div className="flex gap-5">
+            <motion.img
+              src={pic1}
+              className="w-32 h-32 md:w-56 md:h-56 rounded-full animate-down-up rotate-10"
+            />
+            <motion.img
+              src={pic2}
+              className="w-32 h-32 md:w-56 rounded-xl md:h-56 animate-up-down rotate-15"
+            />
           </div>
           <div className="flex justify-center mt-5">
-            <img src={img3} className="md:h-56" />
+            <motion.img
+              className="h-32 md:h-56 rounded-md animate-right-left rotate-10"
+              src={pic3}
+            />
           </div>
         </div>
-        <div className="flex-1 pt-10 md:pt-0 flex flex-col items-center">
-          <h2 className="font-bold text-3xl text-center">
-            &quot;Learn How to COLLABORATE <br /> and Contribute&quot;
-          </h2>
-          <p className="font-medium text-xl pt-5 text-justify md:w-2/3">
-            Collaboration entails active listening, clear communication, and
-            defined roles. Utilize tools, respect diverse perspectives, and
-            manage time efficiently. Offer constructive feedback and seek help
-            when needed. Adaptability, conflict resolution, and learning from
-            others are key. Stay updated and celebrate achievements for
-            effective contributions in any context.
-          </p>
+        <div className="flex w-1/2 ">
+          <div className="flex flex-col justify-start mx-[2rem]">
+            <p className="text-5xl text-start font-serif w-full pb-5">
+              &quot;Learn how to collaborate and contribute.
+            </p>
+            <p className="text-lg mt-3 lg:mr-4 font-light text-justify">
+              Collaboration entails active listening, clear communication, and
+              defined roles. Utilize tools, respect diverse perspectives, and
+              manage time efficiently. Offer constructive feedback and seek help
+              when needed. Adaptability, conflict resolution, and learning from
+              others are key. Stay updated and celebrate achievements for
+              effective contributions in any context.
+            </p>
+          </div>
         </div>
       </div>
-      <div className="p-5 md:p-10">
-        <h2 className="text-3xl font-semibold">
-          Explore Open Science Projects ...
+      <div className="flex flex-col pl-10">
+        <h2 className="text-4xl mb-3 font-bold">
+          Explore Open Science Projects
         </h2>
+        <h2 className="text-3xl font-semibold"></h2>
         <div className="grid grid-cols-2 md:grid-cols-4 pt-10 gap-5 md:gap-0">
           {projectsbyDomain.map((data, index) => {
             return (
@@ -137,7 +151,7 @@ const HeroSection = () => {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

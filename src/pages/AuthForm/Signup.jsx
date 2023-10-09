@@ -1,6 +1,7 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Button } from "@nextui-org/react";
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
@@ -24,7 +25,6 @@ const Signup = () => {
         console.log(error);
       });
   };
-
 
   return (
     <div className="card-back">
@@ -79,9 +79,14 @@ const Signup = () => {
             />
             <i className="input-icon uil uil-lock-alt"></i>
           </div>
-          <button type="submit" className="btn mt-4" onClick={handleSignup}>
+          <Button
+            color="primary"
+            type="submit"
+            className="mt-4"
+            onClick={handleSignup}
+          >
             Register
-          </button>
+          </Button>
         </div>
       </div>
     </div>

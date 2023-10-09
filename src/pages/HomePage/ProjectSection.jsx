@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -17,15 +17,17 @@ import ProjectCard from "./ProjectCard";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 const ProjectSection = () => {
-  const [projects,setProjects]=useState([]);
-  const fetchData=async ()=>{
-    const res=await fetch("http://localhost:8989/api/v1/project/latest-projects")
-    const data=await res.json()
-    setProjects(data)
-  }
-  useEffect(()=>{
+  const [projects, setProjects] = useState([]);
+  const fetchData = async () => {
+    const res = await fetch(
+      "http://localhost:8989/api/v1/project/latest-projects"
+    );
+    const data = await res.json();
+    setProjects(data);
+  };
+  useEffect(() => {
     fetchData();
-  },[])
+  }, []);
   const data1 = [
     {
       title: "abcd for abceefasdasndm ",
@@ -140,7 +142,7 @@ const ProjectSection = () => {
               delay: 1500,
             }}
             breakpoints={{
-              768:{}
+              768: {},
             }}
             modules={[Autoplay]}
             className="mySwiper-homepg"
@@ -149,11 +151,11 @@ const ProjectSection = () => {
               return (
                 <SwiperSlide key={index}>
                   <NavLink to={`/projects/${val._id}`}>
-                  <ProjectCard
-                    name={val.title}
-                    category={val.domain}
-                    src={`http://localhost:8989/api/v1/project/projectphoto/${val._id}`}
-                  />
+                    <ProjectCard
+                      name={val.title}
+                      category={val.domain}
+                      src={`http://localhost:8989/api/v1/project/projectphoto/${val._id}`}
+                    />
                   </NavLink>
                 </SwiperSlide>
               );
@@ -162,7 +164,7 @@ const ProjectSection = () => {
         </div>
       </div>
       <div className="flex h-fit flex-col py-10">
-        <h1 className="text-2xl mt-2">Trusted By</h1>
+        <h2 className="text-2xl mt-2">Trusted By</h2>
         <div className="flex flex-wrap justify-center gap-[10vh] mt-3 p-3">
           {[l1, l2, l3, l4].map((imageSrc, index) => (
             <img

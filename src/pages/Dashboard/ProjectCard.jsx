@@ -1,16 +1,21 @@
+import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+
 const ProjectCard = ({ src, name, category }) => {
   return (
-    <div className="block border-2 border-black max-w-[18rem] rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
-      <div className="relative overflow-hidden bg-cover bg-no-repeat">
-        <img className="rounded-md h-60" src={src} alt="" />
-      </div>
-      <div className="pl-5 py-2">
-        <p className="text-lg text-black break-words">{name}</p>
-        <p className="text-base text-black font-bold break-words tracking-widest">
-          {category}
-        </p>
-      </div>
-    </div>
+    <Card className="py-4">
+      <CardBody className="overflow-visible py-2">
+        <Image
+          alt="Card background"
+          className="object-cover rounded-xl"
+          src={src}
+          width={270}
+        />
+      </CardBody>
+      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+        <h4 className="font-bold text-large">{name}</h4>
+        <p className="text-tiny">{category}</p>
+      </CardHeader>
+    </Card>
   );
 };
 

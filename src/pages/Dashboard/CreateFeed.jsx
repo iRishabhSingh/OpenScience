@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios"
+import { useState } from "react";
+import axios from "axios";
 import {
   Modal,
   ModalContent,
@@ -9,23 +9,26 @@ import {
   Button,
   useDisclosure,
 } from "@nextui-org/react";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 const CreateFeed = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const navigate = useNavigate();
-  const [title,setTitle] = useState("")
-  const [summary,setSummary] = useState("")
+  const [title, setTitle] = useState("");
+  const [summary, setSummary] = useState("");
   const createFeed = async () => {
-    axios.post("http://localhost:8989/api/v1/project/createfeed",{
-      title,summary
-    })
-    .then(res => {
-      alert(res.data.message);
-      navigate("/dashboard")
-    }).catch(() => {
-      alert("Invalid")
-    })
-  } 
+    axios
+      .post("http://localhost:8989/api/v1/project/createfeed", {
+        title,
+        summary,
+      })
+      .then((res) => {
+        alert(res.data.message);
+        navigate("/dashboard");
+      })
+      .catch(() => {
+        alert("Invalid");
+      });
+  };
   return (
     <>
       <Button color="primary" onPress={onOpen}>
@@ -43,7 +46,7 @@ const CreateFeed = () => {
                   className="border rounded p-5"
                   type="text"
                   placeholder="Project Title"
-                  name = "title"
+                  name="title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
@@ -51,7 +54,7 @@ const CreateFeed = () => {
                   className="border rounded p-5"
                   type="text"
                   placeholder="Project Summary"
-                  name = "summary"
+                  name="summary"
                   value={summary}
                   onChange={(e) => setSummary(e.target.value)}
                 />
@@ -60,11 +63,7 @@ const CreateFeed = () => {
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                <Button
-                  color="primary"
-                  onClick={createFeed}
-                  onPress={onClose}
-                >
+                <Button color="primary" onClick={createFeed} onPress={onClose}>
                   Create
                 </Button>
               </ModalFooter>
