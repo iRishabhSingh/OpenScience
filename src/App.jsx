@@ -13,6 +13,7 @@ import Projects from "./pages/Project/Projects";
 import Views from "./pages/Dashboard/View";
 import AdminPage from "./pages/AdminPage";
 import About_us from "./pages/Aboutus/About_us";
+import Notifications from "./pages/Notification";
 function App() {
   return (
     <div className="text-black font-[Source Serif Pro]">
@@ -30,6 +31,7 @@ function App() {
         <Route path="/create-feed" element={<Views />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/about-us" element={<About_us />} />
+        <Route path="/notifications" element={<Notifications />} />
       </Routes>
       <Footer />
     </div>

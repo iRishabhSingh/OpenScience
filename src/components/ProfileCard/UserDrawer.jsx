@@ -1,4 +1,5 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 
@@ -7,6 +8,14 @@ const UserDrawer = () => {
 
   useNavigate();
   const [userData] = useState({
+=======
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth";
+const UserDrawer = () => {
+  const navigate = useNavigate();
+  const [auth, setAuth] = useAuth();
+  const [userData, setUserData] = useState({
+>>>>>>> origin/main
     profileCompletion: 100,
     name: "Lavesh Bhardwaj",
     email: "lavesh@example.com",
@@ -15,16 +24,27 @@ const UserDrawer = () => {
     ranking: 120,
     projectCount: 8,
   });
+<<<<<<< HEAD
 
   const handleLogout = () => {
+=======
+  const handleLogout = () => {
+    window.alert("Logout");
+>>>>>>> origin/main
     setAuth({
       ...auth,
       user: null,
       token: "",
     });
+<<<<<<< HEAD
     localStorage.removeItem("auth");
   };
 
+=======
+    localStorage.clear();
+    toast.success("Logout Successfully");
+  };
+>>>>>>> origin/main
   return (
     <div className="drawer-side z-10">
       <label
@@ -81,8 +101,8 @@ const UserDrawer = () => {
                 {userData.projectCount}
               </a>
             </div>
-            <button
-              // onClick={navigate("/profile")}
+            <NavLink
+              to="/profile"
               className={`w-full p-2 rounded mt-4 transition duration-300 ease-in-out ${
                 userData.profileCompletion === 100
                   ? "bg-blue-500 text-white hover:bg-blue-700"
@@ -92,11 +112,11 @@ const UserDrawer = () => {
               {userData.profileCompletion === 100
                 ? "Edit Profile"
                 : "Complete Profile"}
-            </button>
+            </NavLink>
           </div>
           <hr className="my-6" />
           <h2 className="font-medium mb-4">For User:</h2>
-          <ul className="mb-6 space-y-2">
+          <ul className="mb-6 space-y-2 flex flex-col w-full">
             {[
               "Invitations",
               "Notifications",
@@ -104,16 +124,20 @@ const UserDrawer = () => {
               "Chat History",
               "Settings",
             ].map((option) => (
-              <li
+              <NavLink
+                to={`/${option.toLowerCase()}`}
                 key={option}
                 className="py-2 px-4 hover:bg-gray-200 rounded cursor-pointer"
               >
                 {option}
-              </li>
+              </NavLink>
             ))}
           </ul>
           <hr className="my-6" />
-          <button className="w-full bg-transparent border border-red-500 text-red-500 p-2 rounded hover:bg-red-500 hover:text-white transition duration-300 ease-in-out">
+          <button
+            onClick={() => handleLogout()}
+            className="w-full bg-transparent border border-red-500 text-red-500 p-2 rounded hover:bg-red-500 hover:text-white transition duration-300 ease-in-out"
+          >
             Logout
           </button>
         </div>
