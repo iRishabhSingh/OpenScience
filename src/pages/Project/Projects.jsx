@@ -1,34 +1,36 @@
 import ChatButton from "./ChatButton";
 import { User, Textarea } from "@nextui-org/react";
-import { useNavigate  } from "react-router-dom";
-import { useEffect ,useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../context/auth";
 import { Card, CardFooter, Image, Button } from "@nextui-org/react";
 import { useParams } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 const Projects = () => {
   const navigate = useNavigate();
   const { projectId } = useParams();
   const [auth,setAuth] = useAuth();
   const [comment,setComment] = useState("")
+
   const [project, setProject] = useState({
-    domain:"",
-    skills:"",
-    expertise:"",
-    description:"",
-    objectives:""
+    domain: "",
+    skills: "",
+    expertise: "",
+    description: "",
+    objectives: "",
   });
   useEffect(() => {
     if (!auth?.token) {
-      navigate("/register")
+      navigate("/register");
     }
   }, []);
-  
+
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
         const response = await axios.get(`https://nasabackend.onrender.com/api/v1/project/${projectId}`);
         setProject(response.data); 
+
       } catch (error) {
         console.error(error);
       }
@@ -72,7 +74,6 @@ const Projects = () => {
   };
   return (
     <>
-      
       <div className="overflow-auto">
         <div className=" flex flex-col pl-5 pr-5">
           <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
@@ -95,7 +96,7 @@ const Projects = () => {
                     <span>SKILLS : {project.skills}</span>
                   </div>
                   <div className="flex w-2/3">
-                  <span>EXPERTISE : {project.expertise}</span>
+                    <span>EXPERTISE : {project.expertise}</span>
                   </div>
                 </div>
               </div>
@@ -157,6 +158,8 @@ const Projects = () => {
                 <div className="flex items-center justify-between px-3 py-2 border-t">
                   <Button color="primary" onClick={commentEntry}>Apply</Button>
                   <ChatButton/>
+                  <Button color="primary">Apply</Button>
+                  <ChatButton />
                 </div>
               </div>
             </form>

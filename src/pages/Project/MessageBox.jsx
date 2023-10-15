@@ -1,4 +1,3 @@
-import React from "react";
 const MessageBox = ({ content, position, time, type }) => {
   return (
     <div className={`chat ${position === "end" ? "chat-end" : "chat-start"}`}>

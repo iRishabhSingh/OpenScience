@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -27,6 +27,111 @@ const ProjectSection = () => {
   useEffect(()=>{
     fetchData();
   },[])
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const data1 = [
+    {
+      title: "abcd for abceefasdasndm ",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasda sndm;cvzs",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdas ndm;cvzsan",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsandm",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsand",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasda sndm;cvzs",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdas ndm;cvzsan",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsandm",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsand",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasda sndm;cvzs",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdas ndm;cvzsan",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsandm",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsand",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasda sndm;cvzs",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdas ndm;cvzsan",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsandm",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+    {
+      title: "abcd for abceefasdasndm ;cvzsand",
+      category: "science and exhibition",
+      src: "https://picsum.photos/536/354",
+    },
+  ];
   return (
     <div className="flex flex-col h-172 pl-20 bg-white justify-between">
       <div className="flex h-fit flex-col">
@@ -39,7 +144,7 @@ const ProjectSection = () => {
               delay: 1500,
             }}
             breakpoints={{
-              768:{}
+              768: {},
             }}
             modules={[Autoplay]}
             className="mySwiper-homepg"
@@ -48,11 +153,11 @@ const ProjectSection = () => {
               return (
                 <SwiperSlide key={index}>
                   <NavLink to={`/projects/${val._id}`}>
-                  <ProjectCard
-                    name={val.title}
-                    category={val.domain}
-                    src={`http://localhost:8989/api/v1/project/projectphoto/${val._id}`}
-                  />
+                    <ProjectCard
+                      name={val.title}
+                      category={val.domain}
+                      src={`http://localhost:8989/api/v1/project/projectphoto/${val._id}`}
+                    />
                   </NavLink>
                 </SwiperSlide>
               );
@@ -61,7 +166,7 @@ const ProjectSection = () => {
         </div>
       </div>
       <div className="flex h-fit flex-col py-10">
-        <h1 className="text-2xl mt-2">Trusted By</h1>
+        <h2 className="text-2xl mt-2">Trusted By</h2>
         <div className="flex flex-wrap justify-center gap-[10vh] mt-3 p-3">
           {[l1, l2, l3, l4].map((imageSrc, index) => (
             <img

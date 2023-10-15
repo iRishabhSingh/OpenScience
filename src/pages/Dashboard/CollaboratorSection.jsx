@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import ProjectCard from "./ProjectCard";
-import { NavLink } from "react-router-dom";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import FeedSection from "./FeedSection";
+
 const CollaboratorSection = () => {
   const data1 = [
     {
@@ -107,7 +106,7 @@ const CollaboratorSection = () => {
     <div className="px-10">
       <div className="">
         <div className="flex w-full gap-5 justify-between flex-col">
-          <Tabs color="primary" aria-label="Options" className="">
+          <Tabs color="primary" aria-label="Options" className="h-15 m-2">
             <Tab key="bestmatch" title="Best Match">
               <Card>
                 <CardBody>
@@ -116,8 +115,8 @@ const CollaboratorSection = () => {
                       return (
                         <ProjectCard
                           key={index}
-                          name={val.title}
-                          category={val.category}
+                          name={val.category}
+                          category={val.title}
                           src={val.src}
                         />
                       );

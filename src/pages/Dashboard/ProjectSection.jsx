@@ -1,9 +1,13 @@
+
 import { useEffect, useState } from 'react';
 import { Tabs, Tab, Card, CardBody } from '@nextui-org/react';
 import ProjectCard from './ProjectCard';
 import FeedSection from './FeedSection';
 import axios from 'axios';
 import { useAuth } from '../../context/auth';
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import ProjectCard from "./ProjectCard";
+import FeedSection from "./FeedSection";
 const ProjectSection = () => {
   const [projects, setProjects] = useState([{
     title:"",
@@ -22,7 +26,7 @@ const ProjectSection = () => {
     <div className="px-10">
       <div className="">
         <div className="flex w-full gap-5 justify-between flex-col">
-          <Tabs color="primary" aria-label="Options" className="">
+          <Tabs color="primary" aria-label="Options" className="h-15">
             <Tab key="bestmatch" title="Current Projects">
               <Card>
                 <CardBody>
@@ -33,7 +37,6 @@ const ProjectSection = () => {
                           key={index}
                           name={val.title}
                           category={val.domain}
-                          src={val.src}
                         />
                       );
                     })}

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import pic1 from "../../assets/1.jpg";
+import pic1 from "../../assets/1.jpeg";
 import pic2 from "../../assets/2.jpg";
-import pic3 from "../../assets/3.jpg";
+import pic3 from "../../assets/3.jpeg";
 import { motion } from "framer-motion";
 import { Button, ButtonGroup, Divider } from "@nextui-org/react";
 import group1 from "../../assets/home/homepg-sec1.png";
@@ -9,30 +9,21 @@ const HeroSection = () => {
   return (
     <div>
       <div className="flex my-[7rem] items-center pl-10 pr-10">
-        <div className="flex-1">
-          <div className="flex gap-5 justify-center">
+        <div className="flex w-1/2 flex-col gap-5 justify-center items-center">
+          <div className="flex gap-5">
             <motion.img
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
               src={pic1}
-              className="w-32 h-32 md:w-56 md:h-56 rounded-full"
+              className="w-32 h-32 md:w-56 md:h-56 rounded-full animate-down-up rotate-10"
             />
             <motion.img
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
               src={pic2}
-              className="w-32 h-32 md:w-56 md:h-56"
+              className="w-32 h-32 md:w-56 rounded-xl md:h-56 animate-up-down rotate-15"
             />
           </div>
           <div className="flex justify-center mt-5">
             <motion.img
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+              className="h-32 md:h-56 rounded-md animate-right-left rotate-10"
               src={pic3}
-              className="md:h-40"
             />
           </div>
         </div>

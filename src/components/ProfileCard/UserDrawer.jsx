@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/auth";
+
 const UserDrawer = () => {
-  const navigate = useNavigate();
   const [auth, setAuth] = useAuth();
-  const [userData, setUserData] = useState({
+  const [userData] = useState({
     profileCompletion: 100,
     name: "Lavesh Bhardwaj",
     email: "lavesh@example.com",
@@ -13,15 +13,15 @@ const UserDrawer = () => {
     ranking: 120,
     projectCount: 8,
   });
+
   const handleLogout = () => {
-    window.alert("Logout");
     setAuth({
       ...auth,
       user: null,
       token: "",
     });
+    localStorage.removeItem("auth");
     localStorage.clear();
-    toast.success("Logout Successfully");
   };
   return (
     <div className="drawer-side z-10">
@@ -35,7 +35,7 @@ const UserDrawer = () => {
           <div className="flex justify-between items-center mb-4">
             <h1 className="text-lg font-semibold">Profile</h1>
             <button
-              onClick={() => setShowProfile(false)}
+              onClick={handleLogout}
               className="text-gray-500 hover:text-gray-900 transition duration-300 ease-in-out"
             >
               ✕
