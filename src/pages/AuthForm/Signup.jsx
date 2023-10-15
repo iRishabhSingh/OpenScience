@@ -10,7 +10,7 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8989/api/v1/auth/register", {
+      .post("https://nasabackend.onrender.com/api/v1/auth/register", {
         name,
         email,
         password,

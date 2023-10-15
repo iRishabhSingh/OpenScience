@@ -1,107 +1,23 @@
-import { useEffect } from "react";
-import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
-import ProjectCard from "./ProjectCard";
-import FeedSection from "./FeedSection";
+import { useEffect, useState } from 'react';
+import { Tabs, Tab, Card, CardBody } from '@nextui-org/react';
+import ProjectCard from './ProjectCard';
+import FeedSection from './FeedSection';
+import axios from 'axios';
+import { useAuth } from '../../context/auth';
 const ProjectSection = () => {
-  const data1 = [
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasda sndm;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdas ndm;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title:
-        "abcd for abceefasdasndm ;cvzsandmc.vnk;b addkabhlbmnsdm afjhkbna .fjah afah",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-  ];
+  const [projects, setProjects] = useState([{
+    title:"",
+    domain:""
+  }]);
+  const [auth,setAuth]=useAuth()
+  const fetchData=async()=>{
+    const {data}= await axios.get(`https://nasabackend.onrender.com/api/v1/project/getproject/${auth.user._id}`)
+    console.log(data);
+    setProjects(data)
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="px-10">
       <div className="">
@@ -111,12 +27,12 @@ const ProjectSection = () => {
               <Card>
                 <CardBody>
                   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
-                    {data1.map((val, index) => {
+                    {projects.map((val, index) => {
                       return (
                         <ProjectCard
                           key={index}
                           name={val.title}
-                          category={val.category}
+                          category={val.domain}
                           src={val.src}
                         />
                       );

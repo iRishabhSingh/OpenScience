@@ -4,7 +4,7 @@ import axios from "axios";
 const Feeds = () => {
   const [feeds, setFeeds] = useState([]);
   const fetchData=async ()=>{
-    const res=await fetch("http://localhost:8989/api/v1/project/getfeeds")
+    const res=await fetch("https://nasabackend.onrender.com/api/v1/project/getfeeds")
     const data=await res.json()
     setFeeds(data)
   }

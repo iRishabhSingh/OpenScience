@@ -11,7 +11,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8989/api/v1/auth/login", {
+      .post("https://nasabackend.onrender.com/api/v1/auth/login", {
         email,
         password,
       })

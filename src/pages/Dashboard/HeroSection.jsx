@@ -7,7 +7,7 @@ const HeroSection = () => {
   const fetchprojectsbyDomain = async () => {
     try {
       const res = await fetch(
-        "http://localhost:8989/api/v1/project/projects-by-domain"
+        "https://nasabackend.onrender.com/api/v1/project/projects-by-domain"
       );
       if (res.ok) {
         const data = await res.json();

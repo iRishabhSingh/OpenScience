@@ -10,6 +10,7 @@ const Projects = () => {
   const navigate = useNavigate();
   const { projectId } = useParams();
   const [auth,setAuth] = useAuth();
+  const [comment,setComment] = useState("")
   const [project, setProject] = useState({
     domain:"",
     skills:"",
@@ -26,7 +27,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8989/api/v1/project/${projectId}`);
+        const response = await axios.get(`https://nasabackend.onrender.com/api/v1/project/${projectId}`);
         setProject(response.data); 
       } catch (error) {
         console.error(error);
@@ -35,7 +36,17 @@ const Projects = () => {
     fetchProjectDetails();
   }, []);
 
-
+  const commentEntry = () => {
+    axios.post(`http://localhost:8989/api/v1/project/entries/${auth.user._id}`,{
+      comment
+    })
+    .then((res) => {
+      alert(res.data.message);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
   const CardBox = (img, text) => {
     <Card isFooterBlurred radius="lg" className="border-none">
       <Image
@@ -135,13 +146,16 @@ const Projects = () => {
                   <textarea
                     id="comment"
                     rows="4"
+                    name = "comment"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
                     className="focus:outline-none w-full px-0 text-sm  bg-white border-0 focus:ring-0  dark:placeholder-gray-400"
                     placeholder="Write a comment..."
                     required
                   ></textarea>
                 </div>
                 <div className="flex items-center justify-between px-3 py-2 border-t">
-                  <Button color="primary">Apply</Button>
+                  <Button color="primary" onClick={commentEntry}>Apply</Button>
                   <ChatButton/>
                 </div>
               </div>

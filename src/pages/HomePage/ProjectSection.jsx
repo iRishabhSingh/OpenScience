@@ -17,117 +17,16 @@ import ProjectCard from "./ProjectCard";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 const ProjectSection = () => {
-  const [projects,setProjects]=useState([]);
+  const [projects,setProjects]=useState([
+  ]);
   const fetchData=async ()=>{
-    const res=await fetch("http://localhost:8989/api/v1/project/latest-projects")
+    const res=await fetch("https://nasabackend.onrender.com/api/v1/project/latest-projects")
     const data=await res.json()
     setProjects(data)
   }
   useEffect(()=>{
     fetchData();
   },[])
-  const data1 = [
-    {
-      title: "abcd for abceefasdasndm ",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasda sndm;cvzs",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdas ndm;cvzsan",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ;cvzsandm",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ;cvzsand",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasda sndm;cvzs",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdas ndm;cvzsan",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ;cvzsandm",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ;cvzsand",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasda sndm;cvzs",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdas ndm;cvzsan",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ;cvzsandm",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ;cvzsand",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasda sndm;cvzs",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdas ndm;cvzsan",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ;cvzsandm",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-    {
-      title: "abcd for abceefasdasndm ;cvzsand",
-      category: "science and exhibition",
-      src: "https://picsum.photos/536/354",
-    },
-  ];
   return (
     <div className="flex flex-col h-172 pl-20 bg-white justify-between">
       <div className="flex h-fit flex-col">

@@ -16,7 +16,7 @@ const CreateFeed = () => {
   const [title,setTitle] = useState("")
   const [summary,setSummary] = useState("")
   const createFeed = async () => {
-    axios.post("http://localhost:8989/api/v1/project/createfeed",{
+    axios.post("https://nasabackend.onrender.com/api/v1/project/createfeed",{
       title,summary
     })
     .then(res => {

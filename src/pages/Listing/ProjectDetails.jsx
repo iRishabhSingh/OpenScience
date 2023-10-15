@@ -48,7 +48,7 @@ const ProjectDetails = () => {
     }
 
     axios
-      .post("http://localhost:8989/api/v1/project/addlisting", formData, {
+      .post("https://nasabackend.onrender.com/api/v1/project/addlisting", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

@@ -10,7 +10,7 @@ const ResetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8989/api/v1/auth/reset-password", {
+      const res = await axios.post("https://nasabackend.onrender.com/api/v1/auth/reset-password", {
         email,
         password,
       });
