@@ -5,9 +5,6 @@ import ProjectCard from './ProjectCard';
 import FeedSection from './FeedSection';
 import axios from 'axios';
 import { useAuth } from '../../context/auth';
-import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
-import ProjectCard from "./ProjectCard";
-import FeedSection from "./FeedSection";
 const ProjectSection = () => {
   const [projects, setProjects] = useState([{
     title:"",
